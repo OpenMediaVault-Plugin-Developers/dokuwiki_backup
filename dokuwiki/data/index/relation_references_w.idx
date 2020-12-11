@@ -1,1 +1,16 @@
 installing_omv5_armbian_buster
+start
+wiki:syntax
+sidebar
+playground:playground
+wiki:pagename
+some:namespaces
+wiki:nonexisting
+wiki:dokuwiki
+https:www.omvextras.org
+installing_omv5_raspberry_pi
+playground:start
+wiki:start
+wiki:welcome
+https:www.omv-extras.org
+installing_omv5_i386_32_bit_pc

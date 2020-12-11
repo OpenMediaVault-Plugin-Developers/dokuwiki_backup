@@ -1,1 +1,58 @@
 1607101779	74.123.77.193	C	installing_omv5_armbian_buster	crashtest	created		51
+1607118824	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			0
+1607119336	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			15
+1607119363	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			7
+1607119393	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			0
+1607119967	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			1
+1607140884	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			15
+1607140907	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			-5
+1607141799	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			1234
+1607144009	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[About this Guide] 		4
+1607144100	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[About this Guide] 		9
+1607144542	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			832
+1607173994	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			-1
+1607175121	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			2197
+1607175392	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		31
+1607177437	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		28
+1607179766	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		885
+1607180317	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		265
+1607180471	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			13
+1607181061	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			250
+1607182087	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Working With the Image File] 		1
+1607182477	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			500
+1607191555	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		20
+1607203003	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			43
+1607204740	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			349
+1607213064	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Supported Devices] 		1
+1607217904	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			10523
+1607218556	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing Up] 		142
+1607219418	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		4
+1607219529	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		-11
+1607222755	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Installing OMV5 on Armbian Buster] 		27
+1607261264	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Armbian - First Time Logon] 		0
+1607261404	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Install OMV] 		14
+1607261428	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Install OMV] 		1
+1607261588	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing Up] 		47
+1607261635	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Donate] 		2
+1607261788	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Donate] 		2
+1607261936	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Wireless Networking] 		193
+1607261965	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing Up] 		-45
+1607262225	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing Up] 		60
+1607262285	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Donate] 		-211
+1607263520	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Format and Test Flash Media] 		1
+1607263683	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Flashing Armbian onto an SD-card] 		0
+1607402837	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Working With the Image File] 		0
+1607402863	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Verify the image] 		0
+1607402893	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Verify the image] 		4
+1607402970	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Format and Test Flash Media] 		27
+1607403001	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Flashing Armbian onto an SD-card] 		0
+1607462476	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Verify the image] 		-3
+1607463040	74.123.77.193	E	installing_omv5_armbian_buster	crashtest			-3
+1607470101	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[The First Boot] 		0
+1607470134	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[The First Boot] 		-1
+1607470262	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Armbian - First Time Logon] 		6
+1607470316	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Armbian - First Time Logon] 		25
+1607470358	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing the Armbian Install] 		-2
+1607470369	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Finishing the Armbian Install] 		-1
+1607470565	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Wireless Networking] 		27
+1607470587	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Wireless Networking] 		-6

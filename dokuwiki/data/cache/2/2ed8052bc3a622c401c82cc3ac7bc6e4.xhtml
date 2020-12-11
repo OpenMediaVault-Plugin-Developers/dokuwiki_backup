@@ -1,8 +1,700 @@
 
 <p>
-<strong>Installing OMV5 on Armbian Buster</strong>
+<center><strong>Getting Started with OMV Addendum A:</strong></center>
 </p>
 
 <p>
-Place Marker
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=omv_logo.jpg" class="media" title="omv_logo.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=215021&amp;media=omv_logo.jpg" class="mediacenter" alt="" width="400" /></a>
 </p>
+
+<h1 class="sectionedit1" id="installing_omv5_on_armbian_buster">Installing OMV5 on Armbian Buster</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Installing OMV5 on Armbian Buster&quot;,&quot;hid&quot;:&quot;installing_omv5_on_armbian_buster&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;114-163&quot;} -->
+<h2 class="sectionedit2" id="introduction">Introduction</h2>
+<div class="level2">
+
+<p>
+Due to the lack of the numerous Single Board Computers (SBC&#039;s) required for testing and integration, providing images for all Armbian supported SBC&#039;s, with Openmediavault (OMV) pre-installed, will not be possible.   
+However, installing OMV5 on Armbian supported SBC&#039;s is a relatively easy task.  This document is a guide for that purpose.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Introduction&quot;,&quot;hid&quot;:&quot;introduction&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;164-531&quot;} -->
+<h2 class="sectionedit3" id="about_this_guide">About this Guide</h2>
+<div class="level2">
+
+<p>
+The purpose and intent of this guide is to provide a walk-through to get SBC users up and running as quickly and as easily as possible.  This guide assumes that users have a working Windows Client for installing and executing the needed utilities.  It is also assumed that Mac and Linux desktop users will be able to find, install, and use utilities equivalent to those called out in Prerequisites.
+</p>
+<ul>
+<li class="level1"><div class="li"> This guide contains links to external sources of information and software.  It&#039;s best used on an Internet connected PC.</div>
+</li>
+<li class="level1"><div class="li"> This is a community document and a work in progress.  Input and feedback are welcome and can be sent to: <a href="mailto:&#111;&#109;&#118;&#103;&#117;&#105;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="mail" title="&#111;&#109;&#118;&#103;&#117;&#105;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#111;&#109;&#118;&#103;&#117;&#105;&#100;&#101;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;About this Guide&quot;,&quot;hid&quot;:&quot;about_this_guide&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;532-1220&quot;} -->
+<h2 class="sectionedit4" id="not_supported">Not Supported</h2>
+<div class="level2">
+
+<p>
+<strong>Desktop versions of Armbian</strong>
+</p>
+
+<p>
+Armbian desktop versions are not supported and are used at the user&#039;s risk.  If a desktop is used, SD-card backup is recommended. 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Not Supported&quot;,&quot;hid&quot;:&quot;not_supported&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1221-1414&quot;} -->
+<h2 class="sectionedit5" id="supported_devices">Supported Devices</h2>
+<div class="level2">
+
+<p>
+To see if an SBC of interest is supported by Armbian, visit the Armbian Download Page. 
+</p>
+
+<p>
+OMV5 will install on most SBC devices with <strong>Official</strong> Armbian support and a <strong>Buster</strong> image:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong>Suitable For Testing</strong> , “<strong>WIP</strong>” (Work in Progress), and <strong>No Official Support</strong> images may work, but things may be broken.  Use of these images is at the user&#039;s risk.  These images could be considered to be in “BETA” state.  Problems are to be expected.  </div>
+</li>
+<li class="level1"><div class="li"> Use of <strong>End of Support (EOS)</strong> images is discouraged.  The state of the <abbr title="Operating System">OS</abbr> is undetermined and it may not update normally. The install process may fail or, if the installation is successful, OMV may be (or become) unstable.  Again, use of <strong>EOS</strong> images is at the user&#039;s risk.</div>
+</li>
+<li class="level1"><div class="li"> Use of any of the above image classes is not supported.</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Supported Devices&quot;,&quot;hid&quot;:&quot;supported_devices&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;1415-2247&quot;} -->
+<h2 class="sectionedit6" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+
+<p>
+This installation process <em class="u">requires</em> a wired Ethernet connection and Internet access.
+Typically, all that is needed to begin the installation is an Ethernet cable, an Armbian supported SBC, a power supply sufficient for the SBC model being used, and one SD-card (two are preferred for backup).
+</p>
+
+<p>
+To get started, a few utilities are needed to expand, check, and work with an Armbian image.
+</p>
+<ul>
+<li class="level1"><div class="li"> Armbian images are compressed with a .7z extension.  Users will need the <a href="https://www.7-zip.org/" class="urlextern" title="https://www.7-zip.org/" rel="ugc nofollow">7-Zip</a>  utility to decompress the image.  7-Zip is installable on a Windows client.</div>
+</li>
+<li class="level1"><div class="li"> To check the decompressed image, an <a href="https://md5-sha-checksum-utility.en.lo4d.com/windows" class="urlextern" title="https://md5-sha-checksum-utility.en.lo4d.com/windows" rel="ugc nofollow">MD5 – SHA Checksum utility</a> is needed.  This utility is portable, meaning it&#039;s not necessary to install it, but it may require support files.  Simply run the executable.</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.sdcard.org/downloads/formatter/index.html" class="urlextern" title="https://www.sdcard.org/downloads/formatter/index.html" rel="ugc nofollow">SDformatter</a> is a utility for formatting SD-cards, that does a trim operation on flash media to clear remnants of old files. SDformatter is installable on a Windows client.   </div>
+</li>
+<li class="level1"><div class="li"> <a href="http://www.heise.de/ct/Redaktion/bo/downloads/h2testw_1.4.zip" class="urlextern" title="http://www.heise.de/ct/Redaktion/bo/downloads/h2testw_1.4.zip" rel="ugc nofollow">h2testw_1.4</a> is a flash media test program.  With a freshly formatted SD-card or USB thumbdrive, it writes files with known content and verifies the content in a read operation, detecting errors in the process.  <strong>h2testw_1.4</strong> downloads as a zip file.  By right clicking on the zip file, and using “Extract All”, 7-Zip will expand the zip file to a folder named <strong>h2testw_1.4</strong>  The executable inside this folder is a portable application. Run the executable. </div>
+</li>
+<li class="level1"><div class="li"> To burn an Armbian image to an SD-card, <a href="https://www.balena.io/etcher/" class="urlextern" title="https://www.balena.io/etcher/" rel="ugc nofollow">Etcher</a> is recommended.  (It burns the image and verifies it in one process.)  Etcher is installable on a Windows client.</div>
+</li>
+<li class="level1"><div class="li"> <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" class="urlextern" title="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" rel="ugc nofollow">PuTTY</a> is an SSH client that will allow users to connect to their SBC, from a Windows client, and get on the command line.  PuTTY is installable on a Windows client. </div>
+</li>
+<li class="level1"><div class="li"> While 8GB is the minimum and will work fine, a 16GB card will provide longer life in the role of a boot drive.  Users are encouraged to get two SD-cards.  One is for the installation and the second is for backing up the <abbr title="Operating System">OS</abbr> installation, when configuration is complete.  </div>
+</li>
+</ul>
+
+<p>
+For the best experience, use only high quality <strong><em class="u">new</em></strong> SD-cards, such as Samsung or SanDisk, that are rated A1 Class 10 or better.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian1_sd-card.jpg" class="media" title="armbian1_sd-card.jpg"><img src="/lib/exe/fetch.php?w=80&amp;tok=d0adff&amp;media=armbian1_sd-card.jpg" class="mediacenter" alt="" width="80" /></a>
+</p>
+
+<p>
+<strong>Important</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> When selecting an Armbian image to download, for best possible compatibility with OMV5, select the Armbian <strong>Buster Server</strong> image for your device. </div>
+</li>
+<li class="level1"><div class="li"> On the Armbian device page, scroll down to <strong><em class="u">bottom</em></strong>, to the “<strong>All download options</strong>” section, and select the <strong>Buster Server</strong> variant.  If Buster Server is not available, <strong>Buster Minimal</strong> should work.</div>
+</li>
+</ul>
+
+<p>
+(Due to the potential for package conflicts, a Buster image with <strong>a desktop is <em class="u">not</em> recommended or supported</strong>. Lastly, Bionic or Stretch images will not work with OMV5.)
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Prerequisites&quot;,&quot;hid&quot;:&quot;prerequisites&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;2248-5368&quot;} -->
+<h2 class="sectionedit7" id="working_with_the_image_file">Working With the Image File</h2>
+<div class="level2">
+
+<p>
+<strong>Decompress the Image</strong>
+Armbian images are compressed and will need to be extracted with 7-Zip.  Highlight the compressed file, right click the mouse, and make the menu selections shown below.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian2_win_explorer_extract.jpg" class="media" title="armbian2_win_explorer_extract.jpg"><img src="/lib/exe/fetch.php?w=800&amp;tok=b17d63&amp;media=armbian2_win_explorer_extract.jpg" class="mediacenter" alt="" width="800" /></a>
+</p>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+The result of the above action is the extraction of files into the current directory.  The image file&#039;s extension is .img  (For the purposes of this guide, the file ending with .asc can be ignored.)
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian3_win_explorer_extracted.jpg" class="media" title="armbian3_win_explorer_extracted.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=59f574&amp;media=armbian3_win_explorer_extracted.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" title="  |" alt="  |" width="600" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Working With the Image File&quot;,&quot;hid&quot;:&quot;working_with_the_image_file&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;5369-5938&quot;} -->
+<h3 class="sectionedit8" id="verify_the_image">Verify the image</h3>
+<div class="level3">
+
+<p>
+MD5 and SHA hashes check for image corruption that may have occurred during the download.  
+</p>
+
+<p>
+<strong>Beginners Note - DO NOT SKIP THIS STEP.</strong>
+</p>
+
+<p>
+The chance of image corruption is highest when downloading and it&#039;s pointless to build a server with flawed software.  Even the slightest corruption of the image may ruin your installation and the effects may not be noticed until well after your server is built and in use.  Headaches can be avoided by checking the image.
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" alt="" width="600" /></a>
+Verify the image file, for your SBC, with the <a href="https://md5-sha-checksum-utility.en.lo4d.com/windows" class="urlextern" title="https://md5-sha-checksum-utility.en.lo4d.com/windows" rel="ugc nofollow">MD5 &amp; SHA checksum utility</a>.  
+</p>
+
+<p>
+(Note that it&#039;s possible to “drag and drop” the file name into the utility, on the <strong>File</strong> line.  Otherwise, use the <strong>Browse</strong> button and navigate to the image file.)
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian4_md5check.jpg" class="media" title="armbian4_md5check.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=52bbff&amp;media=armbian4_md5check.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+Notepad can be used to open the file sha256sum.sha , with <strong>File</strong>, <strong>Open</strong>, using the  <strong>ALL Files *.* </strong> setting. 
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian5_checksum_file.jpg" class="media" title="armbian5_checksum_file.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=aeb9d0&amp;media=armbian5_checksum_file.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+With a sha-256 match, the downloaded image is verified.
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Verify the image&quot;,&quot;hid&quot;:&quot;verify_the_image&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;5939-7032&quot;} -->
+<h3 class="sectionedit9" id="format_and_test_flash_media">Format and Test Flash Media</h3>
+<div class="level3">
+
+<p>
+Using SDFormatter, do a clean format:
+</p>
+
+<p>
+(Note that SDFormatter does a trim operation on the card which cleans up remnants of deleted or previously existing files.)  
+</p>
+
+<p>
+In most cases, SDFormatter will detect the SD-card or thumb-drive.  A volume label is not necessary, at this point, and the default options are fine.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian6_sdformatter.jpg" class="media" title="armbian6_sdformatter.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=895656&amp;media=armbian6_sdformatter.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+<center>After the SD-card format is completed, open <strong>h2testw</strong> and select your language.</center>
+<center>Then, click on <strong>Select target</strong></center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian7_h2testw.jpg" class="media" title="armbian7_h2testw.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=ccb314&amp;media=armbian7_h2testw.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+<center>Under <strong>Computer</strong>, select the flash media previously formatted.</center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian8_file_exp.jpg" class="media" title="armbian8_file_exp.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=b7b5c1&amp;media=armbian8_file_exp.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+<center><strong>Select Write+Verify</strong>.  (<strong>DO NOT</strong> check the <strong>endless verify</strong> box).</center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian9_h2testw.jpg" class="media" title="armbian9_h2testw.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=14e270&amp;media=armbian9_h2testw.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+<center>A dialog similar to the following may pop up.  Ignore it and click on <strong>OK</strong>.</center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian10_h2testw_warning.jpg" class="media" title="armbian10_h2testw_warning.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=89aa39&amp;media=armbian10_h2testw_warning.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+<center>“<strong>Without errors</strong>” is the desired outcome.  If the media tests with errors or is much smaller than is indicated by the SD-card's labeled size, don't use it.</center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian11_h2testw_no_errors.jpg" class="media" title="armbian11_h2testw_no_errors.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=80d54d&amp;media=armbian11_h2testw_no_errors.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+After H2testw verifies the SD-card; <strong>do one more clean format</strong>, using <strong>SDFormatter</strong>, before flashing the card.  While optional, at this point, a volume label could be applied.
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Format and Test Flash Media&quot;,&quot;hid&quot;:&quot;format_and_test_flash_media&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;7033-8650&quot;} -->
+<h3 class="sectionedit10" id="flashing_armbian_onto_an_sd-card">Flashing Armbian onto an SD-card</h3>
+<div class="level3">
+
+<p>
+<center><strong>Start Etcher:</strong></center>
+</p>
+
+<p>
+Etcher, in most cases, will auto detect the SD-card or a USB thumb-drive.  Click on “<strong>Select Image</strong>” and navigate to the decompressed Armbian image. Then click on <strong>Flash!</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> A windows confirmation dialog may pop up.  (Click on OK.)</div>
+</li>
+<li class="level1"><div class="li"> Etcher will write the image, then verify it in one operation.</div>
+</li>
+</ul>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian12_etcher.jpg" class="media" title="armbian12_etcher.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=1557ff&amp;media=armbian12_etcher.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+A “<strong>Success</strong>” flag will pop up when the job is finished and the Etcher window will display “Flash Another?”.  
+The flash operation is complete.
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Flashing Armbian onto an SD-card&quot;,&quot;hid&quot;:&quot;flashing_armbian_onto_an_sd-card&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;8651-9261&quot;} -->
+<h2 class="sectionedit11" id="the_first_boot">The First Boot</h2>
+<div class="level2">
+
+<p>
+*At this point, a wired Ethernet connection is required to connect to the SBC with PuTTY and to install OMV in a later process.*
+</p>
+<ul>
+<li class="level1"><div class="li"> Insure the SBC is connect to wired Ethernet.  </div>
+</li>
+<li class="level1"><div class="li"> Insert the SD-card, into the SBC, and apply power. </div>
+</li>
+<li class="level1"><div class="li"> Wait 3 to 5 minutes. </div>
+</li>
+</ul>
+
+<p>
+The IP address to use for logging into the console is available from your DHCP server.  In most cases, your DHCP server will be running on your <abbr title="Local Area Network">LAN</abbr>&#039;s router.
+</p>
+
+<p>
+(The following is an example.)
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian13_dhcp_server.jpg" class="media" title="armbian13_dhcp_server.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=17a528&amp;media=armbian13_dhcp_server.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+With the IP address noted, proceed to <strong>First Time Login</strong>.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" title="  |" alt="  |" width="600" /></a>
+</p>
+
+<p>
+<center><strong>If there's a problem with obtaining a DHCP assigned IP address:</strong></center>
+</p>
+<ul>
+<li class="level1"><div class="li"> In the event that an IP address is not issued to your SBC, check the wired Ethernet connection and reboot the device.  In some cases this will mean unplugging and plugging the power supply back in.  Allow time for boot up (5 minutes or so) and check the DHCP server again.</div>
+</li>
+<li class="level1"><div class="li"> If an address is not issued, or if the user doesn&#039;t know how to find the ARM device&#039;s IP address on their DHCP server, connect a monitor and keyboard to watch the boot process until it completes.  If the IP address is not displayed at the end of the boot cycle, login with the user <strong>root</strong> and password <strong>1234</strong> </div>
+</li>
+</ul>
+
+<p>
+Unfortunately, this first time logon may kick off a mandatory root user password change and the addition of a non-root user.  Once these processes are complete, type <code>ip add</code> on the command line.  Note the IP address of the Ethernet interface, in the output, and proceed to First Time Login.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;The First Boot&quot;,&quot;hid&quot;:&quot;the_first_boot&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;9262-10900&quot;} -->
+<h2 class="sectionedit12" id="armbian_-_first_time_logon">Armbian - First Time Logon</h2>
+<div class="level2">
+
+<p>
+<center><strong>Open PuTTY and type in the OMV IP address</strong></center>
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian14_puttyconfig.jpg" class="media" title="armbian14_puttyconfig.jpg"><img src="/lib/exe/fetch.php?w=400&amp;tok=763754&amp;media=armbian14_puttyconfig.jpg" class="mediacenter" alt="" width="400" /></a>
+</p>
+
+<p>
+<center>A PuTTY Security Alert will pop up in a first time connection.</center>
+<center>This is normal.  Ignore it and select <strong>Yes</strong>.</center>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+When the SSH window opens:
+Login as: root    The Armbian default password is: 1234
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian15_1rst_logon.jpg" class="media" title="armbian15_1rst_logon.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=eca04f&amp;media=armbian15_1rst_logon.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+After logging in with the default password, you&#039;ll be required to change the root password.  
+Re-enter the current password <strong>1234</strong>, then follow the prompts to enter and confirm a new root password.  (<em class="u">Remember</em> this password.)
+When the root password change is complete, Armbian will prompt to create a  non-root user, with “sudo” admin abilities.  Follow the prompts to complete the task.  (If desired, this user can be altered, deleted, or replaced later. )
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=divider.png" class="media" title="divider.png"><img src="/lib/exe/fetch.php?w=600&amp;tok=ba5fb2&amp;media=divider.png" class="mediacenter" alt="" width="600" /></a>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Armbian - First Time Logon&quot;,&quot;hid&quot;:&quot;armbian_-_first_time_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;10901-11887&quot;} -->
+<h2 class="sectionedit13" id="finishing_the_armbian_install">Finishing the Armbian Install</h2>
+<div class="level2">
+
+<p>
+On the command line, copy and paste the following command into the SSH window:
+</p>
+
+<p>
+<code>apt-get update</code>
+</p>
+
+<p>
+When the command prompt returns copy and paste the following command into the SSH window:
+</p>
+
+<p>
+<code>apt-get upgrade</code>
+</p>
+
+<p>
+(This process with take a few to several minutes.)
+</p>
+
+<p>
+Finally, reboot the SBC with the following command:
+</p>
+
+<p>
+<code>reboot</code>
+</p>
+
+<p>
+In a few minutes, open a new PuTTY/SSH window for the installation of OMV.
+</p>
+
+<p>
+*In the event that the SSH client does not respond to the IP address used for the Armbian installation, look at your DHCP server to see if a “new” IP address has been assigned.*
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing the Armbian Install&quot;,&quot;hid&quot;:&quot;finishing_the_armbian_install&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;11888-12528&quot;} -->
+<h2 class="sectionedit14" id="install_omv">Install OMV</h2>
+<div class="level2">
+
+<p>
+Installing OMV on Armbian is very easy, thanks to Arron Murray (ryecoaaron on the <a href="https://forum.openmediavault.org/" class="urlextern" title="https://forum.openmediavault.org/" rel="ugc nofollow">OMV Forum</a>) for providing a comprehensive installation script that&#039;s executed from a single line. 
+</p>
+
+<p>
+Highlight and copy the following line complete (<strong>Ctrl+C</strong>) and paste it into PuTTY&#039;s SSH window, with a right mouse click.  Then hit <strong>Enter</strong>.
+</p>
+
+<p>
+<code>wget -O - <a href="https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install" rel="ugc nofollow">https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install</a> | sudo bash</code>
+</p>
+
+<p>
+Once the script is running, click out of the SSH window so the script will not be interrupted.
+<strong>Note: Do Not close PuTTY</strong> – that will terminate the root session.  Minimizing PuTTY is OK, but it must be running. 
+</p>
+
+<p>
+Depending on several factors, running this script may take up to 30 minutes.
+</p>
+
+<p>
+When the script is complete, the SBC will automatically reboot.
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install OMV&quot;,&quot;hid&quot;:&quot;install_omv&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:14,&quot;range&quot;:&quot;12529-13404&quot;} -->
+<h3 class="sectionedit15" id="first_time_gui_logon">First Time GUI Logon</h3>
+<div class="level3">
+
+<p>
+After 3 to 5 minutes, OMV can be logged in using the same IP address that was used for the SSH client, entered in a web browser address bar.   The web <abbr title="Graphical User Interface">GUI</abbr> user is <strong>admin</strong> and the default password is <strong>openmediavault</strong>
+</p>
+
+<p>
+<br/>
+
+<strong>Note</strong> - after the completion of the script:
+</p>
+
+<p>
+In the rare event that the OMV console or SSH client does not respond to the IP address used during the installation, recheck  your DHCP server to see if a “new” IP address has been assigned.
+</p>
+
+<p>
+(Typically, consumer router DHCP leases last at least 24 hours.  In cases where DHCP leases are very short - as it is with some versions of DD-WRT router firmware [10 minutes] - the lease issued to the SBC may time out at the end of the installation.  A different address may be issued on reboot.)
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;First Time GUI Logon&quot;,&quot;hid&quot;:&quot;first_time_gui_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:15,&quot;range&quot;:&quot;13405-14212&quot;} -->
+<h2 class="sectionedit16" id="finishing_up">Finishing Up</h2>
+<div class="level2">
+
+<p>
+New users can continue with the setup of OMV using the <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" rel="ugc nofollow">Getting Started with Openmediavault 5 guide</a>, starting in the section titled  OMV - Initial Configuration.
+</p>
+
+<p>
+All users are encouraged to review the section titled Operating System Backup for an easy process to clone your SBC&#039;s SD-Card.
+</p>
+<ul>
+<li class="level1"><div class="li"> To add a Wireless Interface see Final Notes below.  (Unless absolutely required, devices used in a server role should be <strong>avoid</strong> wireless networking.)</div>
+</li>
+</ul>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing Up&quot;,&quot;hid&quot;:&quot;finishing_up&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:16,&quot;range&quot;:&quot;14213-14790&quot;} -->
+<h2 class="sectionedit17" id="donate">Donate</h2>
+<div class="level2">
+
+<p>
+If you found this guide to be helpful and OMV on Armbian SBC&#039;s to be useful, please consider a modest donation to <a href="https://www.omv-extras.org/" class="urlextern" title="https://www.omv-extras.org/" rel="ugc nofollow">OMV-extras.org</a>  To support continuing development and to help offset some of the Developer&#039;s costs, even small donations are greatly appreciated. 
+</p>
+
+<p>
+<br/>
+
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Donate&quot;,&quot;hid&quot;:&quot;donate&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:17,&quot;range&quot;:&quot;14791-15113&quot;} -->
+<h2 class="sectionedit18" id="final_notes">Final Notes:</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Final Notes:&quot;,&quot;hid&quot;:&quot;final_notes&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:18,&quot;range&quot;:&quot;15114-15140&quot;} -->
+<h3 class="sectionedit19" id="networking_-_general">Networking - General</h3>
+<div class="level3">
+
+<p>
+The decision was made to depreciate NetworkManager in SBC&#039;s running OMV.  The primary reason for this decision was to better support the installation and use of Dockers.
+Supporting Portainer, to allow easy use of Dockers, was a priority add-on for OMV5.  Unfortunately, NetworkManager wreaks networking for Dockers and Portainer. 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Networking - General&quot;,&quot;hid&quot;:&quot;networking_-_general&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:19,&quot;range&quot;:&quot;15141-15505&quot;} -->
+<h3 class="sectionedit20" id="wireless_networking">Wireless Networking</h3>
+<div class="level3">
+
+<p>
+First it should be noted that using a wireless interface, with a server, is not the best idea.  To prevent a number of issues such as interference, bandwidth contention issues with clients, etc., a server should be connected to the <strong>wired</strong> <abbr title="Local Area Network">LAN</abbr> ports of a router or a network switch.  However it is understood that, in some cases, wired connections may not be an option.
+</p>
+
+<p>
+If your SBC is equipped with a wireless interface, by default OMV will not show it in the <abbr title="Graphical User Interface">GUI</abbr> but it can easily be added.
+</p>
+<ul>
+<li class="level1"><div class="li"> An existing interface can be added as noted in the following.</div>
+</li>
+<li class="level2"><div class="li"> After plugging it in, a compatible add-on USB wireless interface can be added in the same manner.</div>
+</li>
+</ul>
+
+<p>
+(*In the example below, a wireless USB adapter is being added to a Rock64 without an onboard interface.*)
+</p>
+
+<p>
+Under <strong>System</strong>, <strong>Network</strong>, in the <strong>Interfaces</strong> tab, click on the <strong>+ Add</strong> button.  Select <strong>Wi-Fi</strong>.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian16_omv_wireless_int.jpg" class="media" title="armbian16_omv_wireless_int.jpg"><img src="/lib/exe/fetch.php?w=600&amp;tok=3fc7ff&amp;media=armbian16_omv_wireless_int.jpg" class="mediacenter" alt="" width="600" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+When the <strong>Add Wi-Fi</strong> dialog box pops up, select the drop down arrow next to <strong>Device</strong>.  The on-board or add-on  wireless interface will be the only interface in the list.  Select it.
+</p>
+
+<p>
+In the <strong>Wi-Fi</strong> section, add the <strong>SSID</strong> for the wireless network and the encryption <strong>Password</strong>.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian17_omv_wireless_dialog.jpg" class="media" title="armbian17_omv_wireless_dialog.jpg"><img src="/lib/exe/fetch.php?w=300&amp;tok=bf05ed&amp;media=armbian17_omv_wireless_dialog.jpg" class="mediacenter" alt="" width="300" /></a>
+</p>
+
+<p>
+<br/>
+
+<br/>
+
+</p>
+
+<p>
+Using the right scrool bar, scroll down to <strong>IPv4</strong>.  Next to <strong>Method</strong>, click the drop down arrow and make the appropriate selection.  (DHCP is recommended for beginners.)
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=installing_omv5_armbian_buster&amp;media=armbian18_omv_wireless_dialog2.jpg" class="media" title="armbian18_omv_wireless_dialog2.jpg"><img src="/lib/exe/fetch.php?w=300&amp;tok=92d01a&amp;media=armbian18_omv_wireless_dialog2.jpg" class="mediacenter" alt="" width="300" /></a>
+</p>
+
+<p>
+<center>Click, <strong>Save</strong>.</center>
+</p>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+At this point, the wireless interface will appear under <strong>System</strong>, <strong>Network</strong>, in the <strong>Interfaces</strong> tab.  Further configuration can be done, as needed, by editing the interface in the Interfaces tab.
+</p>
+
+<p>
+<br/>
+
+</p>
+
+<p>
+To further configure the SBC; refer to the <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" rel="ugc nofollow">Getting Started with Openmediavault 5 guide</a>, starting in the section titled  OMV - Initial Configuration.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Wireless Networking&quot;,&quot;hid&quot;:&quot;wireless_networking&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:20,&quot;range&quot;:&quot;15506-&quot;} -->

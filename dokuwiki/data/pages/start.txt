@@ -1,14 +1,17 @@
+{{ :omvextras_logo3.jpg?300 |}}
+<html><center><strong>Welcome to the<p><a href="https://omv-extras.org">OMV-Extras.org Wiki</a></p></strong></center></html>
 
-**Pardon the dust.  
+\\ 
+\\ 
+
+OMV-Extras.org designs value added plugins for [[https://www.openmediavault.org/|Openmediavault]], greatly extending server functionality.  Further, OMV-Extras.org facilitates the installation of Openmediavault on Raspberry PI's, Armbian supported Single Board Computers and 32bit - x86 platforms.
+ 
+{{ :divider.png?600 |}}
+
+<html><center><strong>**This site is**</strong></center></html>
 
 
-This site is**
-
-
-{{:construction.jpg?400|}}
+{{ :construction.jpg?400 |}}
 
 
 
-Index
-
-[[installing_omv5_armbian_buster|]]
