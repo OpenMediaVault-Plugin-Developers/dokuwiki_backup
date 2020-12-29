@@ -5,13 +5,12 @@
 \\ 
 
 OMV-Extras.org designs value added plugins for [[https://www.openmediavault.org/|Openmediavault]], greatly extending server functionality.  Further, OMV-Extras.org facilitates the installation of Openmediavault on Raspberry PI's, Armbian supported Single Board Computers and 32bit - x86 platforms.
- 
+
+When scrooling through documents, an interactive Table of Contents is available.  Click the TOC drop down ICON in the upper right hand corner of the document page.  (Appears as shown here {{:toc_pop_down.jpg?125|}})
+
 {{ :divider.png?600 |}}
 
-<html><center><strong>**This site is**</strong></center></html>
 
-
-{{ :construction.jpg?400 |}}
 
 
 

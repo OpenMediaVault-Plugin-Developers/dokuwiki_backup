@@ -4,6 +4,10 @@
 {{ ::omv_logo.jpg?400 |}}
 
 ====== Installing OMV5 on Armbian Buster ======
+\\
+\\
+If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf|Installing OMV5 on Armbian Buster]]
+
 
 
 ===== Introduction =====
