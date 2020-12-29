@@ -1,0 +1,461 @@
+<html><center><strong>Getting Started with OMV Addendum C:</strong></center></html>
+
+{{ ::omv_logo.jpg?400 |}}
+
+\\  
+
+====== Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install======
+\\ 
+\\ 
+If preferred, this document is available in PDF form at this location →  [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-C-Installing_OMV5_on_32-bit_i386.pdf|Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install]]
+===== Introduction =====
+
+  * In consideration of Debian's continued support of i386 - 32-bit platforms, support for the installation of Openmediavault on 32-bit Debian is available as a two part process.  After Debian is installed, Openmediavault (hereafter referred to as OMV) is installed by script.
+  * This process may also be used as an alternate install method, for 64 bit platforms, in the event that the standard OMV ISO installation fails.  Note the 64-bit down instructions in the i386 Download section.
+
+\\ 
+\\ 
+
+===== About this Guide =====
+
+
+The purpose and intent of this guide is to provide a walk-through for the i386 build process, to get i386 - 32-bit users up and running as quickly and as easily as possible.
+On fairly rare occasions, the integrated OMV ISO installer will not work with some 64 bit motherboards and hardware.  The OMV installation method described in this guide will work with 64 bit motherboards as well, if the single change under Alternate 64-bit installation is noted and observed.
+
+*Considerations for i386 (32-bit) builds are very similar to amd64 (64-bit) builds. As an addendum to the [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|Getting Started with Openmediavault User Guide]] Getting Started with Openmediavault user guide, geared toward 64-bit platforms, users may benefit by reviewing preliminary information and notes in the larger guide, prior to the actual installation process.*
+
+This guide assumes that users have a working Windows Client for installing and executing utilities.  It is also assumed that Mac and Linux desktop users will be able to find, install, and use utilities equivalent to those called out in Prerequisites.
+
+\\ 
+  * This guide contains links to external sources of information and software.  It's best used on an Internet connected PC.
+  * This is a community document and a work in progress.  Input and feedback are welcome and can be sent to: omvguide@gmail.com
+
+{{ :divider.png?600 |}}
+
+\\ 
+
+===== Hardware Suggestions =====
+ 
+OMV/Debian will run on i386 32-bit platforms, with 1GB of ram or even less. Hardware in this category will work well as a basic NAS server for home use, but performance expectations should be adjusted accordingly.
+ 
+While not essential, more than 1GB of ram would be helpful.  For file caching, in support of normal file system operations, performance is better with more RAM.
+
+A gigabit Ethernet adapter would be preferred, to better support concurrent LAN users and streaming video content. 100Mbs will work, but a gigabit Ethernet adapter may produce better overall results.
+
+\\ 
+
+===== Prerequisites =====
+
+This installation process requires a wired Ethernet connection and Internet access.
+To get started, a few utilities are needed.
+
+[[https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html|PuTTY]] is an SSH client that will allow users to connect to their SBC, from a Windows client, and get on the command line.   PuTTY is Windows installable. 
+
+\\ 
+
+
+===== When Installing to a USB Thumbdrive =====
+
+
+  * [[http://www.heise.de/ct/Redaktion/bo/downloads/h2testw_1.4.zip|h2testw_1.4]] is a flash media test program.  With a freshly formatted USB thumbdrive, h2testw_1.4 writes files with known content and verifies that content in a read operation, detecting errors in the process. 
+h2testw_1.4 downloads as a zip file.  By right clicking on the zip file, and using “Extract All”, 7-Zip will expand the zip file to a folder named h2testw_1.4  The executable inside this folder is a portable application. Simply run the executable.  (If needed 7-Zip is available → here.)
+  * [[https://www.sdcard.org/downloads/formatter/index.html|SD Formatter]] is a utility for formatting flash media, that does a “TRIM” operation which cleans up remnants of deleted or previously existing files.  While designed for SD-cards, it works with USB Thumbdrives as well.
+
+\\ 
+
+{{ :divider.png?600 |}}
+
+\\ 
+
+===== i386 Download =====
+
+Go to the [[https://www.debian.org/distrib/|Debian download page]] Debian download page, find and download the **32-bit PC net install** version of Debian 10, Buster.  (While Debian's site changes often; look under **Download an installation image**, a **small installation image**, and select the **32-bit PC net install**.
+
+==== *Alternate 64-bit installation* ====
+
+*If doing an alternate 64-bit installation, download and use the **64-bit PC net install** version of Debian 10, Buster.  Other than this __**one**__ change, the following installation process will apply.*))
+
+{{ :divider.png?600 |}}
+
+\\ 
+===== Installation Media =====
+
+This guide assumes that the downloaded ISO will be burned to a CD or DVD.  If using a USB thumbdrive as a software source, help with creating a bootable USB thumbdrive ISO can be found here:
+[[https://www.lifewire.com/how-to-burn-an-iso-file-to-a-usb-drive-2619270|Burn an ISO file to a USB drive]].
+
+{{ :divider.png?600 |}}
+
+\\ 
+
+===== Choosing a Boot Drive =====
+
+This subject is covered in the [[https://forum.openmediavault.org/index.php/Thread/27073-New-User-Guide-Getting-Started-with-Openmediavault-4-5/?postID=202952#post202952|OMV5 guide]], in the section titled; Selecting a Boot Drive.
+*If the decision is made to boot from a USB thumbdrive; pre-test the drive as shown, in the following, before use.  Otherwise skip down to Installation.*
+
+{{ :divider.png?600 |}}
+
+\\ 
+
+==== Format and Test Flash Media ====
+
+Using SDFormatter, do a clean format on the new USB Thumbdrive:
+(Note that SDFormatter does a trim operation on the drive which cleans up remnants of deleted or previously existing files.)
+In most cases, SDFormatter will detect the thumb-drive.  A volume label is not necessary, at this point, and the default options are fine.
+
+{{ :32bit_sdformatter.jpg?400 |}} 
+
+\\ 
+\\ 
+
+<html><center>After the Thumdrive format is completed, open **h2testw** and select your language.</center></html>
+<html><center>Then, click on **Select target**</center></html>
+
+{{ :32bit2_h2testw.jpg?400 |}}
+
+\\ 
+
+<html><center>Under Computer, select the flash media previously formatted.</center></html>
+
+{{ :32bit3_file_exp.jpg?400 |}}
+
+\\ 
+
+Select **Write+Verify**.  (DO NOT check the **endless verify** box)
+
+{{ :32bit4_h2testw.jpg?400 |}}
+
+\\
+
+<html><center>A dialog similar to the following may pop up, showing a 1MB difference.  Ignore it and click on OK.</center></html>
+
+{{ :32bit5_warning.jpg?400 |}}
+
+\\ 
+
+<html><center>**“Without errors”** is the desired outcome.  If the media tests with errors or is much smaller than is indicated by the Thumbdrive's labeled size, don't use it.</center></html>
+
+{{ :32bit6_h2testw_no_errors.jpg?400 |}}
+After H2testw verifies the USB thumbdrive; do one more clean format, using SDFormatter, before using thumbdrive.
+
+\\ 
+
+{{ :divider.png?600 |}}
+
+\\ 
+
+===== Installation =====
+
+Boot up using the installation ISO.
+
+The first screen offers a choice of installers.  While both are roughly the same, for illustration, the standard (text) install is much clearer.
+
+<html><center><strong>Select Install**</center></html>
+
+{{ :32bit7_debian_install1.jpg?600 |}}
+
+\\
+
+<html><center><strong>Select a Language:  (As needed)</strong></center></html>
+
+{{ :32bit8_debian_install2.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Select your Location:  (As appropriate.)</strong></center></html>
+
+{{ :32bit9_debian_install3.jpg?600 |}}
+
+\\
+
+<html><center><strong>Configure the Keyboard: (Select as appropriate)</strong></center></html>
+
+{{ :32bit10_debian_install4.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Configure the Network:</strong></center></html>
+
+<html><center><strong>Hostname</strong></center></html>
+
+The default hostname, for this 32-bit install, is **debian**.   In this example, it was changed to **openmediavault** which is the default hostname for an openmediavault install.  Users might chose something like **OMV1** which is shorter and easier to type, for later use.
+
+{{ :32bit11_debian_install5.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Configure the Network:</strong></center></html>
+
+<html><center><strong>Domain Name</strong></center></html>
+
+**If applicable**, enter your domain name suffix.  Otherwise, this entry can be left blank.
+
+(**local** is the default for an openmediavault install.)
+
+{{ :32bit12_debian_install6.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Set up users and passwords:</strong></center></html>
+
+<html><center><strong>root password</strong></center></html>
+
+Follow the on screen guidance for setting the root password.  
+While not recommended, it would be better to write down the root password, then to forget it.
+
+{{ :32bit13_debian_install7.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Set up users and passwords:</strong></center></html>
+
+<html><center><strong>Admin User</strong></center></html>
+
+Follow the on screen guidance for setting up a new user and password.   
+
+(This username and password are necessary for an SSH log in, later.)
+
+{{ :32bit14_debian_install8.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Configure the Clock:</strong></center></html>
+
+<html><center>Select your time zone</center></html>
+
+<html><center>(NO PIC)</center></html>
+
+\\
+
+<html><center><strong>Partition Disks 1:</strong></center></html>
+
+<html><center>If two storage devices are available for installation, this screen may be displayed.</center></html>
+
+{{ :32bit15_debian_install9.jpg?600 |}}
+
+\\ 
+
+<html><center><strong>Partition Disks 2:</strong></center></html>  
+<html><center><strong>Partitioning:</strong></center></html>
+
+<html><center>Make the selection shown; <strong>Guided – use entire disk.</strong></center></html>
+
+{{ :32bit16_debian_install10.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Partition Disks 3:</strong></center></html>  
+<html><center><strong>Partition Disks</strong></center></html>
+<html><center>If installing to a single internal drive, there will be only one selection available.  USB Thumb drives are obvious because many bear their OEM names and their capacity is usually small.</center></html>
+
+{{ :32bit17_debian_install11.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Partition Disk 4:</strong></center></html>  
+<html><center><strong>Partitioning Scheme</strong></center></html>
+<html><center>Select as shown.</center></html>
+
+{{ ::32bit18_debian_install12.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Partition Disk 4:</strong></center></html>  
+<html><center><strong>Finish Partitioning</strong></center></html>
+<html><center>Select as shown.</center></html>
+
+
+{{ :32bit19_debian_install13.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Partition Disk 4:</strong></center></html>  
+<html><center><strong>Write Changes</strong></center></html>
+<html><center>This screen forces the user to manually select <strong>Yes.</strong></center></html>
+
+{{ :32bit20_debian_install14.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Configure the Package Manager:</strong></center></html>  
+<html><center><strong>Installation  CD or DVD</strong></center></html>
+<html><center>(NO PIC)</center></html>
+<html><center>User will be prompted to Scan another CD or DVD.  Select <strong>NO.</strong></center></html>
+
+{{ :divider.png?600 |}}
+
+\\  
+
+<html><center><strong>Configure the Package Manager:</strong></center></html>  
+<html><center><strong>Debian Archive Mirror Country</strong></center></html>
+<html><center>(NO PIC)</center></html>
+<html><center>The default choice is usually best.</center></html>
+
+{{ :divider.png?600 |}}
+
+\\  
+
+<html><center><strong>Configure the Package Manager:</strong></center></html>  
+<html><center><strong>Debian Archive Mirror</strong></center></html>
+<html><center>(NO PIC)</center></html>
+<html><center>The default choice is usually best.</center></html>
+
+{{ :divider.png?600 |}}
+
+\\  
+
+<html><center><strong>Configure the Package Manager:</strong></center></html>  
+<html><center><strong>HTTP proxy</strong></center></html>
+<html><center>In most cases this entry will be blank</center></html>
+<html><center>(If a proxy is required, note the form of entry required in the dialog box.)</center></html>
+<html><center>Select <strong>Continue.</strong></center></html>
+
+{{ ::32bit21_debian_install15.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Configure popularity-contest</strong></center></html>  
+<html><center><strong>Participate in the package usage survey?</strong></center></html>
+<html><center>In most cases this entry will be blank</center></html>
+<html><center>(NO PIC)</center></html>
+<html><center>The user's choice.</center></html>
+
+{{ :divider.png?600 |}}
+
+\\  
+
+<html><center><strong>Software selection</strong></center></html>
+<html><center>Only the SSH server should be selected.  Make changes to reflect the following and <strong>Continue.</strong></center></html>
+
+{{ :32bit22_debian_install16.jpg?600 |}}
+
+\\  
+
+
+<html><center><strong>Install the GRUB Boot Loader on a Hard Disk:</strong></center></html>
+<html><center>Accept the default – <strong>Yes.</strong></center></html>
+
+{{ :32bit23_debian_install17.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Install the GRUB Boot Loader on a Hard Disk:</strong></center></html>
+<html><center>(Generally the boot drive will be <strong>/dev/sda</strong> which is, in most cases, the first sata port.</center></html>
+<html><center>Otherwise, a USB Tumb-drive will be obvious.)</center></html>
+
+{{ :32bit24_debian_install18.jpg?600 |}}
+
+\\  
+
+<html><center><strong>Finish the Installation:</strong></center></html>
+<html><center><strong>Installation Complete</strong></center></html>
+<html><center><strong>Remove the CD or USB installation source, then hit ENTER.</strong></center></html>
+<html><center>(Otherwise, the installation process may re-start.)</center></html>
+
+{{ :32bit25_debian_install19.jpg?600 |}}
+
+\\  
+
+===== First Boot =====
+
+Allow the installation to boot.
+  
+Log into the console as ''root'' and type ''ip addr'' on the command line.
+
+{{ :32bit26_first_boot.jpg?600 |}}
+
+Note the address in this case - 192.168.1.57
+
+\\  
+
+{{ :divider.png?600 |}}
+
+\\  
+
+==== First Time SSH Logon ====
+
+<html><center><strong>Open PuTTY and type in the IP address as previously noted.</strong></center></html>
+
+{{ :32bit27_putty.jpg?400 |}}
+
+\\  
+
+<html><center>A PuTTY Security Alert will pop up in a first time connection.</center></html>
+<html><center><strong>Open PuTTY and type in the IP address as previously noted.</strong></center></html>
+
+{{ :32bit28_putty_warning.jpg?400 |}}
+
+{{ :divider.png?600 |}}
+
+\\  
+
+  * Log into the SSH connection with the Admin user account and password, set during the Debian install.
+  * To get root access to the installation, type the command  ''su – root''  <enter>.  Type in the root password when prompted.
+
+{{ :32bit29_root_login.jpg?600 |}}
+
+\\  
+
+
+==== Preliminary Prep for OMV ====
+
+
+(*Note: “**Paste**” is supported by PuTTY, with a **right mouse click**.*)
+
+Copy (highlight and **Ctrl+C**) and paste (right mouse click) the following into the SSH window.  Hit **Enter**.
+
+''apt-get install wget sudo -y''
+
+{{ :divider.png?600 |}}
+
+===== Install OMV =====
+
+Installing OMV on i386 platforms is very easy, thanks to Arron Murray (ryecoaaron on the [[https://forum.openmediavault.org/|OMV Forum]]) for providing a comprehensive installation script that's executed from a single line.
+
+Copy the following line complete (**Ctrl+C**) and paste it into PuTTY's SSH window, with a right mouse click.  Then hit **Enter**.
+\\ 
+''wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash''
+\\  
+Once the script is running, click out of the SSH window so the script will not be interrupted.
+
+* Note: **Do Not close PuTTY** – that will terminate the root session.  Minimizing PuTTY is OK, but it must be running. * 
+
+Depending on several factors, running this script may take up to 30 minutes.
+
+When the script is complete, the PC will automatically reboot.
+
+{{ :divider.png?600 |}}
+\\  
+
+===== *32-bit Limitations* =====
+
+Users should be aware that packages, plugins and other options that are available for 64-bit platforms may not be available or work on 32-bit platforms. 
+ 
+Further, certain types of dockers and other types of virtualization may not install or work on 32-bit platforms.  (As a practical example, the Portainer Docker will not install on i386 platforms.)
+\\  
+
+{{ :divider.png?600 |}}
+
+\\  
+
+===== First Time GUI Logon =====
+\\  
+After 3 to 5 minutes, OMV can be logged into using the same IP address that was used for the SSH client, entered in a web browser address bar.
+
+The web GUI user is **admin** and the default password is **openmediavault**
+
+With OMV installed and logged in, new users can continue to configure their servers, using the OMV5 guide found → [[https://forum.openmediavault.org/index.php/Thread/27073-New-User-Guide-Getting-Started-with-Openmediavault-4-5/?postID=202952#post202952|here]].  With the installation complete, users should begin with the section titled; **OMV - Initial Configuration** .
+\\  
+
+<html><center>This concludes the i386, 32-bit, OMV installation.</center></html>
+
+
+{{ :divider.png?600 |}}
+
+**Donate**
+
+Openmediavault on 32bit PC's is the project of OMVextras.org  
+In addition to enabling the installation of OMV on 32bit PC's and Single Board Computers, OMV-extras.org develops plugin's for OMV that make Portainer (Dockers) and other extensions available for your R-PI possible. 
+ 
+Please consider a modest donation at [[https://www.omv-extras.org/|OMV-extras.org]] to offset some of the Developer's costs and to support continuing development.
+\\  
+\\  
