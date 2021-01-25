@@ -1,16 +1,46 @@
 {{ :omvextras_logo3.jpg?300 |}}
-<html><center><strong>Welcome to the<p><a href="https://omv-extras.org">OMV-Extras.org Wiki</a></p></strong></center></html>
+<html><center><strong>Welcome to <p><a href="https://omv-extras.org">OMV-Extras.org </a></p></strong></center></html>
 
 \\ 
 \\ 
 
 OMV-Extras.org designs value added plugins for [[https://www.openmediavault.org/|Openmediavault]], greatly extending server functionality.  Further, OMV-Extras.org facilitates the installation of Openmediavault on Raspberry PI's, Armbian supported Single Board Computers and 32bit - x86 platforms.
 
-When scrooling through documents, an interactive Table of Contents is available.  Click the TOC drop down ICON in the upper right hand corner of the document page.  (Appears as shown here {{:toc_pop_down.jpg?125|}})
+The document index contains guides for scripted installs, on the titled platforms.  These documents are detailed and are suitable for beginner to intermediate users.
 
 {{ :divider.png?600 |}}
 
+<HTML><Center><strong>The Quick Index for Experienced Linux Users and Admins</strong></Center></HTML>
+\\
+\\
+  * For a quick installation of omv-extras, on Openmediavault, run the following command as root:
 
+wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash 
 
+  * Or read the [[https://forum.openmediavault.org/index.php/Thread/5549-OMV-Extras-org-Plugin/|guide]].
 
+  * To install Openmediavault AND omv-extras, follow this [[https://github.com/OpenMediaVault-Plugin-Developers/installScript/|guide]]. 
 
+----
+
+For a list of plugins available, look on bintray:
+
+  * OMV 5.x - [[https://bintray.com/beta/#/openmediavault-plugin-developers/usul?tab=packages|usul]]
+  * OMV 4.x - [[https://bintray.com/beta/#/openmediavault-plugin-developers/arrakis?tab=packages|arrakis]]
+
+Plugin source code available on [[https://github.com/OpenMediaVault-Plugin-Developers|github]]
+
+----
+
+Venmo:  ryecoaaron
+\\
+\\
+
+<html>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2BQNGSC8HQJME">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" border="0">
+<img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" border="0">
+</form>
+</html>

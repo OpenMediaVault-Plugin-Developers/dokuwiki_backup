@@ -64,8 +64,8 @@ For the best experience, use only high quality **__new__** SD-cards, such as Sam
 {{ :armbian1_sd-card.jpg?80 |}}
 
 **Important**
-  * When selecting an Armbian image to download, for best possible compatibility with OMV5, select the Armbian **Buster Server** image for your device. 
-  * On the Armbian device page, scroll down to **__bottom__**, to the “**All download options**” section, and select the **Buster Server** variant.  If Buster Server is not available, **Buster Minimal** should work.
+  * When selecting an Armbian image to download, for best possible compatibility with OMV5, select the Armbian **Buster Server** or **Buster Minimal** image for your device. 
+  * On the Armbian device page, scroll down to **__bottom__**, to the “**All download options**” section, and select the **Buster Server** variant.  If Buster Server is not available, **Buster Minimal** will work.
 (Due to the potential for package conflicts, a Buster image with **a desktop is __not__ recommended or supported**. Lastly, Bionic or Stretch images will not work with OMV5.)
 
 {{ :divider.png?600 |}}

@@ -57,3 +57,5 @@
 1607470565	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Wireless Networking] 		27
 1607470587	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Wireless Networking] 		-6
 1608652515	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Installing OMV5 on Armbian Buster] 		227
+1609874989	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		-2
+1609875121	74.123.77.193	E	installing_omv5_armbian_buster	crashtest	[Prerequisites] 		22
