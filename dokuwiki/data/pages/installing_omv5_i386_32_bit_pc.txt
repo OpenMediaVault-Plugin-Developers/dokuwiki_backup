@@ -51,6 +51,9 @@ To get started, a few utilities are needed.
 
 [[https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html|PuTTY]] is an SSH client that will allow users to connect to their SBC, from a Windows client, and get on the command line.   PuTTY is Windows installable. 
 
+[[https://www.7-zip.org/|7-Zip]] is a free file compression utility that will expand *.zip file archives.  7-Zip is Windows installable.
+
+
 \\ 
 
 
@@ -443,7 +446,7 @@ After 3 to 5 minutes, OMV can be logged into using the same IP address that was 
 
 The web GUI user is **admin** and the default password is **openmediavault**
 
-With OMV installed and logged in, new users can continue to configure their servers, using the OMV5 guide found → [[https://forum.openmediavault.org/index.php/Thread/27073-New-User-Guide-Getting-Started-with-Openmediavault-4-5/?postID=202952#post202952|here]].  With the installation complete, users should begin with the section titled; **OMV - Initial Configuration** .
+With OMV installed and logged in, new users can continue to configure their servers, using the OMV5 guide found here → [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#basic-configuration|Wiki]] or [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-C-Installing_OMV5_on_32-bit_i386.pdf|PDF]].  With the installation process complete, users should begin with the section titled; **Initial Configuration** .
 \\  
 
 <html><center>This concludes the i386, 32-bit, OMV installation.</center></html>

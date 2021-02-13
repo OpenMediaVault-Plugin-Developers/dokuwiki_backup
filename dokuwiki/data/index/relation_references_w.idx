@@ -15,3 +15,6 @@ wiki:welcome
 https:www.omv-extras.org
 installing_omv5_i386_32_bit_pc
 installing_omv5_on_a_raspberry_pi
+remote_mount
+remote_mount_plugin_for_omv5
+further_notes_on_permission_commands

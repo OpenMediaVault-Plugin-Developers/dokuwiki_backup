@@ -1,4 +1,4 @@
-a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1607118688;s:8:"modified";i:1607814481;}s:7:"creator";s:9:"crashtest";s:4:"user";s:9:"crashtest";s:11:"last_change";b:0;s:11:"contributor";a:1:{s:9:"crashtest";s:9:"crashtest";}s:8:"relation";a:3:{s:10:"references";a:3:{s:28:"installing_omv5_raspberry_pi";b:1;s:30:"installing_omv5_armbian_buster";b:1;s:30:"installing_omv5_i386_32_bit_pc";b:1;}s:5:"media";a:1:{s:11:"divider.png";b:1;}s:10:"firstimage";s:11:"divider.png";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:11:"description";a:1:{s:8:"abstract";s:161:"Document Index
+a:2:{s:7:"current";a:8:{s:4:"date";a:2:{s:7:"created";i:1607118688;s:8:"modified";i:1612997834;}s:7:"creator";s:9:"crashtest";s:4:"user";s:9:"crashtest";s:11:"last_change";a:8:{s:4:"date";i:1612997834;s:2:"ip";s:13:"74.123.77.193";s:4:"type";s:1:"E";s:2:"id";s:7:"sidebar";s:4:"user";s:9:"crashtest";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:16;}s:11:"contributor";a:1:{s:9:"crashtest";s:9:"crashtest";}s:8:"relation";a:3:{s:10:"references";a:4:{s:28:"installing_omv5_raspberry_pi";b:1;s:30:"installing_omv5_armbian_buster";b:1;s:30:"installing_omv5_i386_32_bit_pc";b:1;s:28:"remote_mount_plugin_for_omv5";b:1;}s:5:"media";a:1:{s:11:"divider.png";b:1;}s:10:"firstimage";s:11:"divider.png";}s:8:"internal";a:2:{s:5:"cache";b:1;s:3:"toc";b:1;}s:11:"description";a:1:{s:8:"abstract";s:191:"Document Index
 
 Installing OMV5 on a Raspberry PI
 
@@ -8,4 +8,6 @@ Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install
 
 
 
-Plugins Index";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1607118688;s:8:"modified";i:1607814481;}s:7:"creator";s:9:"crashtest";s:4:"user";s:9:"crashtest";s:11:"last_change";b:0;s:11:"contributor";a:1:{s:9:"crashtest";s:9:"crashtest";}}}
+Plugins Index
+
+Remote Mount Plugin For OMV5";}}s:10:"persistent";a:5:{s:4:"date";a:2:{s:7:"created";i:1607118688;s:8:"modified";i:1612997834;}s:7:"creator";s:9:"crashtest";s:4:"user";s:9:"crashtest";s:11:"last_change";a:8:{s:4:"date";i:1612997834;s:2:"ip";s:13:"74.123.77.193";s:4:"type";s:1:"E";s:2:"id";s:7:"sidebar";s:4:"user";s:9:"crashtest";s:3:"sum";s:0:"";s:5:"extra";s:0:"";s:10:"sizechange";i:16;}s:11:"contributor";a:1:{s:9:"crashtest";s:9:"crashtest";}}}

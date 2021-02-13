@@ -305,7 +305,9 @@ New users can continue with the setup of OMV using the [[https://github.com/Open
 All users are encouraged to review the section titled Operating System Backup for an easy process to clone your SBC's SD-Card.
 
 
-  * To add a Wireless Interface see Final Notes below.  (Unless absolutely required, devices used in a server role should be **avoid** wireless networking.)
+**Adding a Wireless Interface:**
+
+To add a Wireless Interface see Final Notes below.  (Unless absolutely required, devices used in a server role should **avoid** wireless networking.)
 
 \\ 
 ===== Donate =====
@@ -351,7 +353,7 @@ In the **Wi-Fi** section, add the **SSID** for the wireless network and the encr
 \\ 
 \\ 
 
-Using the right scrool bar, scroll down to **IPv4**.  Next to **Method**, click the drop down arrow and make the appropriate selection.  (DHCP is recommended for beginners.)
+Using the right scroll bar, scroll down to **IPv4**.  Next to **Method**, click the drop down arrow and make the appropriate selection.  (DHCP is recommended for beginners.)
 
 {{ ::armbian18_omv_wireless_dialog2.jpg?300 |}}
 
@@ -365,4 +367,4 @@ At this point, the wireless interface will appear under **System**, **Network**,
 \\ 
 
 
-To further configure the SBC; refer to the [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|Getting Started with Openmediavault 5 guide]], starting in the section titled  OMV - Initial Configuration.
+To further configure the SBC; refer to the [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration|Getting Started with Openmediavault 5 guide]] - [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|or PDF]], starting in the section titled  OMV - Initial Configuration.

@@ -91,10 +91,7 @@ The chance of image corruption is highest when downloading and it's pointless to
 
 {{ :divider2.png?600 |}}
 
-<html><center>Verify the downloaded Zip file with the [[https://md5-sha-checksum-utility.en.lo4d.com/windows|MD5 & SHA checksum utility]].</center></html>  
-
-
-<html><center>(Note that it's possible to “drag and drop” the file name into the utility, on the **File** line.  Otherwise, use the **Browse** button and navigate to the image file.)</center></html>
+Verify the downloaded Zip file with the [[https://md5-sha-checksum-utility.en.lo4d.com/windows|MD5 & SHA checksum utility]].  Note that it's possible to “drag and drop” the file name into the utility, on the **File** line.  Otherwise, use the **Browse** button and navigate to the image file.
 
 {{ ::r-pi2_md5check.jpg?600 |}}
 
@@ -334,6 +331,7 @@ In the rare event that the OMV console or SSH client does not respond to the IP 
 \\ 
 ==== Adding a new Administrative User with SSH access ====
 
+OPTIONAL:
 The user **pi** is added by Raspberry PI OS, by default.  Since this is a minor security risk, it's recommended that users add a new user for server admin purposes.  For the purposes of illustration, the user added in the following will be named **admin-user**.
 
 \\
@@ -346,8 +344,8 @@ The user **pi** is added by Raspberry PI OS, by default.  Since this is a minor 
 {{ :divider2.png?600 |}}
 
 <html><center>Add a new user name to the <strong>Name</strong> field. Set and confirm a </strong>Password</strong> for the new user.</center></html>
- 
-<html><center>(*Note that the users <strong>admin</strong>, <strong>root</strong>, <strong>backup</strong>, and others are Linux system users.  The add user dialog will reject attempts to configure a new user with the exact same name of an existing system user.*)</center></html>
+\\
+<html><center>(*Note that the users <strong>admin</strong>, <strong>root</strong>, <strong>backup</strong>, and others are Linux system users. Do not attempt to create a user using these exact system account user names.  The add user dialog may reject attempts to configure a new user with the exact same name of an existing system user*)</center></html>
 
 {{ ::r-pi12_add_admin_user2.jpg?400 |}}
 
