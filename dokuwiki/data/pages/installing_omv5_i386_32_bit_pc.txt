@@ -459,6 +459,6 @@ With OMV installed and logged in, new users can continue to configure their serv
 Openmediavault on 32bit PC's is the project of OMVextras.org  
 In addition to enabling the installation of OMV on 32bit PC's and Single Board Computers, OMV-extras.org develops plugin's for OMV that make Portainer (Dockers) and other extensions available for your R-PI possible. 
  
-Please consider a modest donation at [[https://www.omv-extras.org/|OMV-extras.org]] to offset some of the Developer's costs and to support continuing development.
+Please consider a modest [[https://wiki.omv-extras.org/doku.php?id=start|donation]] to offset some of the Developer's costs and to support continuing development.  Small donations are appreciated.
 \\  
 \\  

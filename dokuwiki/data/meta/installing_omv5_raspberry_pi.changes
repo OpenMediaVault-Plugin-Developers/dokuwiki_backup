@@ -86,3 +86,6 @@
 1611702667	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest			85
 1611702769	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest	[Adding a new Administrative User with SSH access] 		1
 1612482843	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest	[Verify the Archive file] 		-65
+1613503624	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest	[Not Supported] 		49
+1613503686	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest	[Not Supported] 		2
+1613504264	74.123.77.193	E	installing_omv5_raspberry_pi	crashtest	[Donate] 		1

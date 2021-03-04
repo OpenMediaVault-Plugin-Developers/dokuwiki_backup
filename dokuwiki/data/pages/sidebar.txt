@@ -7,6 +7,8 @@
 
 [[installing_omv5_i386_32_bit_pc|Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install]]
 
+[[NAS_Permmissions_In_OMV|Getting Started with NAS Permissions in OMV]]
+
 {{:divider.png?200|}}
 
 **Plugins Index**

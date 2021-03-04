@@ -1,0 +1,288 @@
+<html><center><strong>Getting Started with:</strong></center></html>
+
+
+{{ ::omv_logo.jpg?400 |}}
+
+
+====== NAS Permissions In OMV ======
+\\ 
+\\ 
+If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-Permissions.pdf|Getting Started - Permissions]]
+\\
+----
+\\
+===== General =====
+\\
+The purpose of this document is to provide an overview explanation of access control settings, using Samba network shares, in a peer-to-peer network.  It's a brief explanation of permissions, as implemented within Openmediavault's GUI, with some usable examples.  It does not apply, directly, to Domains or LDAP environments.\\
+\\
+In Openmediavault's [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#|New Users Guide]], in the sections [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#setting-up-a-sf|Setting up a Shared Folder]] and [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#creating-a-smb-cif-samba-network-share|Creating a SMB/CIF “Samba” Network Share]], permission selections where made that will allow all local LAN users to connect to OMV server shares with **write** access.  For home LAN's with one or two users, this may be adequate.\\
+\\
+On the other hand, some home users may want to prevent children from deleting files and provision to  allow guest login's with Read only access.  Further, small businesses may want to grant or restrict employee access to specific shares.  These scenarios will require that permissions are implemented for NAS share access control.\\
+\\
+----
+\\
+===== An Immutable Law for Good Server Security =====
+\\
+The password for the root account (the server's super user) should be strong and it should NOT be shared.  While this may not be practical when operating a SOHO or business NAS server, the number of users who know the password for the root account should be held to a minimum.  (In the business use case, there should be at least two administrators with root access.)\\
+\\
+Openmediavault has another super user account “**admin**” that is used to log into the Web Admin GUI.  Given that this user has “**root user like**” capabilities, **admin**'s password should not be shared either.\\
+\\
+The reason why it is important to control who has access to the root and admin accounts and their passwords is, this level of access can be used to override or bypass all permissions discussed in this document. 
+\\
+----
+\\
+===== A Workstation Logon =====
+\\
+In most workgroup LAN environments, users log into their PC's using a unique username and password.  These “credentials” are stored locally and have permissions associated with them that allow access to the local PC, it's folders and files, and other workstation resources.  A username lookup is performed, the password is verified and if all match, access to the workstation is granted.  A “local” server logon is very similar, allowing for local server administration.\\
+\\
+{{ ::1-perms-workstation.jpg?200 |}}
+\\
+===== NAS Share Access =====
+\\
+The same is true, indirectly, of network share access.  When access to a network share is requested by a LAN client, there's a background authentication process taking place that is not visible to the user.  When a user is logged onto a workstation, the workstation acts as an authentication “proxy”, offering the logged on user's credentials (**username + password**) to the server.  
+
+{{ :2-perms-serveraccess.jpg?400 |}}
+----
+
+<html><center>If the authentication process fails, the user may be prompted for alternate credentials (another username and password) or access is denied.</center></html>
+\\
+{{ ::2.1-perms-serveraccess2.jpg?400 |}}
+\\
+----
+\\
+<html><center>If the authentication process completes successfully, access is granted and the share is opened.</center></html>
+\\
+{{ :3-perms-serveraccess2.jpg?500 |}}
+\\
+This is the basis for setting up transparent access for users, who are logged on at workstations, when they attempt to access NAS network shares.
+\\
+----
+\\
+In a workgroup environment, it's relatively easy to grant access to shares by **username** and **password**, but it requires some setup.  As indicated in the above example, the Openmediavault server (hereafter referred to as OMV) needs to be aware of usernames and passwords for users who may attempt to access shares with permissions enabled.\\
+\\
+----
+===== Adding LAN Users to OMV =====
+\\
+To enable transparent access, the first step is to add workstation usernames and their passwords to OMV.\\
+\\
+Under, **Access Rights Management**, **User**, in the **Users** tab, click on the **+Add** button.\\
+\\
+**Name:**  Add the user name **exactly** as it is entered in the workstation logon, with capitalized letters if used.\\
+\\
+**Password:** Add the username's password exactly as it is entered at the workstation.
+(In this example, the eye icon was used to show the password unmasked.)
+\\
+{{ :4-perms-addusers.jpg?400 |}}
+\\
+<html><center><strong>Save</strong> the entry.</center></html>
+\\
+Repeat the process, adding all LAN users that will need access to the server's shares where permissions are applied.\\
+----
+<html><center>The End Result</center></html>
+\\
+{{ :5-perms-userslist.jpg?400 |}}
+\\
+All users have been entered in OMV, by the exact username and password they use to log into their workstations, laptops, etc.  Notice that all usernames are in the Group **users** by default.\\
+\\
+(The **pi** user is a default system user installed on a Raspberry PI for administrative purposes.  For the purpose of this document, the pi user can be ignored.)\\
+\\
+===== Shared Folder Permissions =====
+\\
+By default, the majority of files and folders on the OMV file server are owned and accessed solely by the **root** user account.  Since that is not useful in a networked environment, user access to a NAS server storage location is changed by the creation of a “**Shared Folder**”.  Creating a shared folder is covered in the New User's Guide under [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#setting-up-a-sf|Setting up a Shared Folder]]. This process physically creates the folder and assigns usable permissions to the folder, that allow regular user access.\\
+\\
+The default permissions assigned to a new Shared Folder, in OMV's GUI, are:\\
+**Administrator: read/write**,\\ 
+**Users: read/write**,\\ 
+**Others: read-only**\\ 
+\\ 
+These permissions directly correlate to the following:\\
+\\
+{{ :6-perms-sharedfolderperms.jpg?600 |}}
+\\
+As previously noted and illustrated, all users are added to the Group users by default.  In the example provided above, **Fred**, **Mary**, **Johnny** and **Betty** will be able to “**write**” to the folder “**Test**”.\\ 
+\\ 
+**In the interests of clarity**:
+  * What is shown as **Extra options** (above) are **standard Linux permissions**.  
+  * For home server use and to keep server permissions simple, **use standard Linux permissions**.
+  * What is labeled as **User/Group permissions** (above) are **ACL's (Access Control List)**.  **Do not mix ACL's** with standard Linux permissions, without understanding the **//exact//** effects. 
+  * “**Others**” means any user that is not **root** or any user that is NOT in the Group users.  This includes members of other Groups and **anonymous** login's.  **Others**, in this example, have **Read**.\\ 
+\\
+----
+\\
+===== Samba (SMB) Network Shares =====
+
+While a **Shared Folder** is a “base” for sharing files, it is only one part of sharing data.  A Shared Folder allows for local access, at the server, but it doesn't allow for network sharing.  Network sharing requires a Samba share known as “**SMB/CIF**” in OMV's GUI.  
+(There are other network sharing techniques, such as **NFS** shares, that are not covered in this document.)\\
+\\
+{{ :7-perms-shared-smb-layers.jpg?600 |}}
+\\
+As noted in the illustration, a SMB share is layered onto a Shared folder to allow network access to LAN clients.\\ 
+\\
+----
+\\
+**In the following; Samba**, under **Services**, **SMB/CIF**, in the **Settings** tab is assumed to be **Enabled**.\\
+\\
+Under **Services**, **SMB/CIF**, in the **Shares** tab, click on the **+Add** button.  
+
+  * **Shared Folder:** 
+In this case, we're layering a Samba network share on top of the “Test” Shared Folder, previously created.
+  * **Public:** 
+In this case, the entry selected is No.\\ 
+\\ 
+{{ :8-perms-samba-share.jpg?600 |}}
+\\
+  * In the **Test** Shared Folder, we allowed** Others** “**Read**” access.  The SMB (Samba) network share is layered on top of the “**Test**” Shared Folder.  **Others** with **Read access**, in the Shared folder, equates to “**Guests Allowed**” in Samba.  However, the SMB setting “**Public - No**” will stop anonymous or unknown users at the network share.  This is what was meant by, “Samba can be more restrictive” than base level Shared Folder permissions.
+  * If the SMB **Public** field is set to “**Guests Allowed**”, that would combine with the “**Test**” Shared Folder permission **Others – Read**, to allow network guests **Read** access.  (These permissions; **Others – Read** in the Shared Folder and **Guests Allowed** in Samba are appropriate for a media share.  Network guests would have read access to media, music, movies, etc.)
+  * Beyond **Public access** choices, Samba assumes that appropriate user permissions have been assigned to the bottom layer, at the Shared Folder level. 
+  * As shown below, if **Read only** is **ON** (green), **users** with **write** access to the Shared Folder, will not be able to add (write), modify or delete files.  (There are exceptions.  More on that later.)\\ 
+\\
+----
+\\ 
+Scroll to the bottom of the **Add share** dialog box, using the slider bar, on the right, or the down cursor key.\\
+\\
+The **Hosts allow**'ed and **Hosts deny**'ed fields are workstation level access control options.  While these options may fit some use cases, they can make permissions excessively “complicated” for some of the reasons following.\\ 
+
+Understanding permissions effects, specifically the combination of various settings, is important.  Again, Samba can further restrict but it can't override and “increase” access. Some examples are:
+
+  * If a “host is allowed” but the username doesn't have access, the result is **denied**.  
+  * If a host is denied but the username has access, the result is still **denied**.
+  * Consumer router behavior is not always consistent.  If a host is specified by IP address, but the client uses DHCP, the IP address may change.
+  * Many consumer routers do not consistently map host names to IP address which may make “allow” or “deny” by host name inconsistent.\\
+\\ 
+For these reasons and more, host entries should not be used without closely considering their effects.\\
+\\ 
+{{ :9-perms-samba-share2.jpg?400 |}}
+\\
+**Extra options:**  This field presents home and small business administrators with some interesting options for share administration.  For example, in the upper half of this Samba dialog box, there is the option for **Read only**.  In a Samba share, the **Read only switch** will further restrict the group **users** to **read only** access, even if the Shared Folder below allows **write** access.\\ 
+\\
+However a “**write list**” will allow an administrator to selectively bypass the Samba **Read only** switch.  In this case if the statement **''write list=Fred''**  is added to the **Extra Options** field, the user **Fred** will have **write** access while the rest of the group **users** will still be restricted to **Read only**, enforced by Samba's **Read only switch**.\\ 
+\\
+The same could be done for the entire users group with **''write list=@users''**  
+Adding this statement would allow the entire users group, over the network, **write** access while restricting **Others** with the **Read only switch**.\\ 
+\\ 
+----
+===== ACL's - Extended Permissions =====
+\\
+==== General ====
+\\
+**Extended Permissions** are not native to Linux.  They are “add-on's” that are stored with a file or folder in their extended attributes.  They are referred to as “Extended permissions” or “ACL's” (Access Control List), interchangeably.  Extended permissions grant or deny file/folder access based on user or group “names”.\\
+\\
+Again, note the following:\\
+\\
+{{ :10-acls_versus_standard.jpg?600 |}}
+\\
+Where possible, use **Standard Permissions** (labeled as **Extra Options**).\\
+\\
+----
+\\
+In the context of a NAS, used as a home server, ACL's should be avoided.  Mixing Standard and Extended permissions can cause inexplicable effects, if not done carefully. However, ACL's can be used, if necessary, to explicitly “deny” access to one or more users in the Group **users**.\\
+\\
+For instance, in the example group **users** we have two adults **Fred** and **Mary**, and their two children **Johnny** and **Betty**.  It's easy to envision a scenario where adults may need a network share that their children couldn't access, that my contain medical information, letters to school officials, etc.\\
+\\
+Following is a potential use of ACL's that would allow parents access to a share while denying their children access:\\
+\\
+{{ :11-perms-acls.jpg?600 |}}
+\\ 
+Note the check marks under **No access** for **Johnny** and **Betty**.  To be sure that all files and folders in the share are reset with the appropriate permissions, the **Recursive** switch should be **ON** (green), before Clicking on **Apply**.\\ 
+\\ 
+**Johnny** and **Betty** will have no access to the **Test** share, while the remaining users in the Group **users** will have **Write**.  Using ACL's in this way allows a home administrator to selectively set individual users to **Read-only** or **deny access**.  However, note that ACL's can not grant **increased access** that does not exist in Standard permissions.\\
+\\
+----
+\\
+===== Permissions Overview =====
+\\
+The following, moving left to right shows the hierarchy of Standard Linux permissions and the network permissions that are layered onto it, with Samba.  Once Standard permissions are set in the Shared Folder, follow on permission layers can only **//reduce//** access.  They cannot, for example, grant a user or a group **Write** access to a Shared Folder, if **Read only** is specified at the Shared Folder level.\\
+\\
+{{ :12-perms-overview.jpg?600 |}} 
+\\
+----
+\\ 
+==== Practical Permissions Examples ====
+\\
+(In the following examples root, as the owner, is assumed.)\\
+\\
+In the examples, the list of users are as follows:\\ 
+Fred – IworkOT\\ 
+Mary – 2kids2feed\\ 
+Johnny – Ihatechores\\ 
+Betty – Iwashdishes\\ 
+\\
+All users are in the default Group **users**.  Fred is the server admin.\\
+\\
+----
+\\
+=== A Media Share ===
+\\
+{{ :13-perms-example1.jpg?600 |}}
+\\
+  * In the Shared Folder, the group **users** have **write**.  This is necessary so that **Fred**, who is the family server administrator, can **write** to the share.
+  * Samba Public access is set to **Guests allowed** which works with the Shared Folder permission **Others: Read**   These permissions and Samba settings will allow visitors **read** access to media shares such as music or movies.
+  * **Read Only is ON**.  This will further restrict the Group users down from **Write** to **Read only** access.  With young children accessing a share, **Read only** is a good idea to prevent the possibility of an accidental deletion of media files.
+  * The Samba **''write list''** bypasses the Samba **Read Only** setting for one user, allowing **Fred** to **write** to the share for admin purposes.\\
+\\
+=== A Group Share ===
+\\
+(A location for sharing files among all family members or members of a group.)\\
+\\
+{{ :13-perms-example2.jpg?600 |}}
+\\
+  * The Group **users** have **write**.
+  * While **Others** have **read**, at the Shared Folder, SMB **Public** is set to “**NO**” which stops all users who are not in the Group **users**.  Guests are not allowed.  (The same effect, no Guest users, could be achieved at the Shared Folder level with **Others – None**.)
+  * **Read only** is **OFF** so Shared Folder permissions allow all members of the Group users to write to the share.\\
+\\
+=== A Restricted Share ===
+\\
+This share is for private information, for select members of the Group **users**.  ACL's can be used to remove access for users that should not see the contents of the applicable share.  In this example, Parents have access while household children are set to **No Access**.\\ 
+\\ 
+A significant point to be made about this example is that one or more users can be set to **Read only** or **No Access** without disturbing the access of the remaining members of the Group **users**.  This might be convenient and expedient for employers who might want to restrict a specific employee to **No access** or **Read-only** access, quickly, when “notice” has been given or received.\\
+\\
+{{ :14-perms-example3.1.jpg?600 |}}
+\\
+Shared Folder settings are as shown below:\\
+\\
+{{ :14-perms-example3.2.jpg?600 |}}
+\\
+After selecting group usernames for **No access** (or **Read-only**) it's important to turn **Recursive ON** (green), before clicking the **Apply** button.  This insures that new permissions are written to all files and folders within the share.\\
+\\
+**Note:**\\
+The above could also be achieved by creating a new group created under; **Access Rights Management**, **Group** and clicking on the **+Add** button.  A group named **parents** could contain the users **Fred** and **Mary**.  If the Group **parents** is used above, in the **Group** field, ACL entries to deny access to children would not be required.\\ 
+\\ 
+=== A Personal / Private Share ===
+\\
+A private share for an individual user could be created using ACL's and setting all users, but one, to **No access**.  However, creating a group with one user might be the best approach.\\
+\\
+Note the names of the newly created groups, below, and the usernames in each group.  The naming scheme keeps it simple.\\
+\\
+{{ :15-perms-example4.1.jpg?600 |}}
+\\
+In this case, the Group **Fred** (with a single user **Fred**) has **Write**.  The Samba settings noted are appropriate for this type of share.  Only **Fred** can access and write this share.\\
+\\
+{{ :15-perms-example4.2.jpg?600 |}}
+\\
+----
+===== The Bottom Line =====
+\\
+If all data is stored in a single share, assigning the appropriate permissions might range from difficult to impossible.  On the other hand, if careful thought is given to segregating data into logical sets (Shared Folders) with user access and permissions in mind, assigning the appropriate permissions becomes a much easier task.\\
+\\
+===== Permissions Notes: =====
+\\
+  * Additions of new users or changes to existing user accounts, such as password changes, would need to be replicated at the server.
+  * Some use cases may benefit from using the [[https://pureinfotech.com/credential-manager-windows-10/|Credential Manager]] built into Win10. 
+  * Win10 workstations may need a few network configuration changes to access a server in a peer-to-peer network.  It a workstation can't connect to an OMV server, see this [[https://www.mediafire.com/file/5yoo25285t91l3s/HOWTO-ConnectWin10toOMV.pdf/file|document]] for settings and work arounds.
+\\
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

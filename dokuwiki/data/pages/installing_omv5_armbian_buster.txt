@@ -313,7 +313,7 @@ To add a Wireless Interface see Final Notes below.  (Unless absolutely required,
 ===== Donate =====
 
 
-If you found this guide to be helpful and OMV on Armbian SBC's to be useful, please consider a modest donation to [[https://www.omv-extras.org/|OMV-extras.org]]  To support continuing development and to help offset some of the Developer's costs, even small donations are greatly appreciated. 
+If you found this guide to be helpful and OMV on Armbian SBC's to be useful; please consider a modest [[https://wiki.omv-extras.org/doku.php?id=start|donation]] to support continuing development and to help offset some of the Developer's costs.  Even small donations are greatly appreciated. 
 
 
 \\ 

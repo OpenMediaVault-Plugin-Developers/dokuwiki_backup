@@ -1,23 +1,20 @@
-1612998061	74.123.77.193	E	omvextras_logo4.jpg	crashtest			1391
-1612998772	74.123.77.193	C	underconstruction.jpg	crashtest	created		73493
-1613000183	74.123.77.193	C	remotemount1.jpg	crashtest	created		129287
-1613000184	74.123.77.193	C	remotemount2.jpg	crashtest	created		148635
-1613000185	74.123.77.193	C	remotemount4.jpg	crashtest	created		66651
-1613000186	74.123.77.193	C	remotemount3.jpg	crashtest	created		229363
-1613000188	74.123.77.193	C	remotemount6.jpg	crashtest	created		121145
-1613000188	74.123.77.193	C	remotemount5.jpg	crashtest	created		136252
-1613000188	74.123.77.193	C	remotemount7.jpg	crashtest	created		90900
-1613000189	74.123.77.193	C	remotemount8.jpg	crashtest	created		79515
-1613000191	74.123.77.193	C	remotemount9.jpg	crashtest	created		113067
-1613000192	74.123.77.193	C	remotemount10.jpg	crashtest	created		125292
-1613000194	74.123.77.193	C	remotemount11.jpg	crashtest	created		237821
-1613000194	74.123.77.193	C	remotemount13.jpg	crashtest	created		45414
-1613000194	74.123.77.193	C	remotemount12.jpg	crashtest	created		76701
-1613000197	74.123.77.193	C	remotemount14.jpg	crashtest	created		202344
-1613000197	74.123.77.193	C	remotemount15.jpg	crashtest	created		93905
-1613000197	74.123.77.193	C	remotemountsamba1.jpg	crashtest	created		89477
-1613000198	74.123.77.193	C	remotemountsamba2.jpg	crashtest	created		119322
-1613060048	74.123.77.193	E	remotemount15.jpg	crashtest			0
-1613060443	74.123.77.193	E	remotemount15.jpg	crashtest			24143
-1613074238	74.123.77.193	C	remotemount16.jpg	crashtest	created		106357
 1613074658	74.123.77.193	C	remotemount17.jpg	crashtest	created		244589
+1614017012	74.123.77.193	C	1-perms-workstation.jpg	crashtest	created		52383
+1614017013	74.123.77.193	C	2-perms-serveraccess.jpg	crashtest	created		77788
+1614017014	74.123.77.193	C	3-perms-serveraccess2.jpg	crashtest	created		100159
+1614017015	74.123.77.193	C	4-perms-addusers.jpg	crashtest	created		97048
+1614017016	74.123.77.193	C	5-perms-userslist.jpg	crashtest	created		115537
+1614017017	74.123.77.193	C	6-perms-sharedfolderperms.jpg	crashtest	created		80978
+1614017018	74.123.77.193	C	7-perms-shared-smb-layers.jpg	crashtest	created		134178
+1614017019	74.123.77.193	C	8-perms-samba-share.jpg	crashtest	created		126702
+1614017019	74.123.77.193	C	9-perms-samba-share2.jpg	crashtest	created		73571
+1614017020	74.123.77.193	C	10-acls_versus_standard.jpg	crashtest	created		103653
+1614017022	74.123.77.193	C	11-perms-acls.jpg	crashtest	created		90850
+1614017023	74.123.77.193	C	12-perms-overview.jpg	crashtest	created		117624
+1614017023	74.123.77.193	C	13-perms-example2.jpg	crashtest	created		55126
+1614017024	74.123.77.193	C	14-perms-example3.1.jpg	crashtest	created		60934
+1614017025	74.123.77.193	C	14-perms-example3.2.jpg	crashtest	created		95553
+1614017025	74.123.77.193	C	15-perms-example4.1.jpg	crashtest	created		71831
+1614017026	74.123.77.193	C	15-perms-example4.2.jpg	crashtest	created		53369
+1614017028	74.123.77.193	C	13-perms-example1.jpg	crashtest	created		62891
+1614017841	74.123.77.193	C	2.1-perms-serveraccess2.jpg	crashtest	created		186764

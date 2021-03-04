@@ -22,12 +22,9 @@ This capability makes makes connections to OMV servers, non-OMV servers, and Cli
 
 ===== Uses for Remote Mount =====
 
-Remote Mount is useful for mounting, accessing and replicating network shares, located on another LAN server or a LAN client.  This capability works very well with Rsync, for backing up network shares over a LAN connection.
-\\
-\\
-Along with setting up Remote Mount, this document will provide a practical example where Remote Mount and Rsync are used for replicating a network share.
-\\
-\\
+  * Remote Mount is useful for mounting, accessing and replicating network shares, located on another LAN server or a LAN client.  This capability works very well with Rsync, for backing up network shares over a LAN connection.
+  * Along with setting up Remote Mount, this document will provide a practical example where Remote Mount and Rsync are used for replicating a network share.
+  * **Remote Mount makes the creation of a full Backup Server relatively easy**, with no command line operations required.  Guidance for creating a full Backup Server is provided in this document.
 ===== Install the Remote Mount Plugin =====
 
 <html><center>Under <strong>System</strong>, <strong>Plugins</strong>, scroll to the <strong>openmediavault-remotemount</strong> plugin.  Check the selection box and click the <strong>Install</strong> button.</center></html>
@@ -54,7 +51,9 @@ In this specific example, a **username** and **password** was created on the Pri
 
 ----
 
-On the Primary server; under **Access Rights Management**, **Shared Folders**; click on the **Music** shared folder and the **ACL** button.
+**On the Primary server**:\\
+\\
+Under **Access Rights Management**, **Shared Folders**; click on the **Music** shared folder and the **ACL** button.
 \\
 \\
 The following shows permissions on the Primary server, for the **Music** share:
@@ -142,7 +141,7 @@ The remote network share **Music**, on the Primary Server, is now mounted under 
 {{ :remotemount5.jpg?600 |}}
 \\
 \\
-For users who are interested only in mounting a remote share, this concludes the installation, configuration, of the Remote Mount plugin.
+For users who are interested only in mounting a remote share, this concludes the installation and configuration of the Remote Mount plugin.
 \\
 {{ :divider2.png?800 |}}
 
