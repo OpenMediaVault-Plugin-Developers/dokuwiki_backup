@@ -134,7 +134,7 @@ In this case, the entry selected is No.\\
   * In the **Test** Shared Folder, we allowed** Others** “**Read**” access.  The SMB (Samba) network share is layered on top of the “**Test**” Shared Folder.  **Others** with **Read access**, in the Shared folder, equates to “**Guests Allowed**” in Samba.  However, the SMB setting “**Public - No**” will stop anonymous or unknown users at the network share.  This is what was meant by, “Samba can be more restrictive” than base level Shared Folder permissions.
   * If the SMB **Public** field is set to “**Guests Allowed**”, that would combine with the “**Test**” Shared Folder permission **Others – Read**, to allow network guests **Read** access.  (These permissions; **Others – Read** in the Shared Folder and **Guests Allowed** in Samba are appropriate for a media share.  Network guests would have read access to media, music, movies, etc.)
   * Beyond **Public access** choices, Samba assumes that appropriate user permissions have been assigned to the bottom layer, at the Shared Folder level. 
-  * As shown below, if **Read only** is **ON** (green), **users** with **write** access to the Shared Folder, will not be able to add (write), modify or delete files.  (There are exceptions.  More on that later.)\\ 
+  * If **Read only** is **ON** (green), **users** with **write** access to the Shared Folder, will not be able to add (write), modify or delete files.  (There are exceptions.  More on that later.)\\ 
 \\
 ----
 \\ 
@@ -149,16 +149,16 @@ Understanding permissions effects, specifically the combination of various setti
   * Consumer router behavior is not always consistent.  If a host is specified by IP address, but the client uses DHCP, the IP address may change.
   * Many consumer routers do not consistently map host names to IP address which may make “allow” or “deny” by host name inconsistent.\\
 \\ 
-For these reasons and more, host entries should not be used without closely considering their effects.\\
+For these reasons and more, host entries should NOT be used without closely considering their effects.\\
 \\ 
 {{ :9-perms-samba-share2.jpg?400 |}}
 \\
 **Extra options:**  This field presents home and small business administrators with some interesting options for share administration.  For example, in the upper half of this Samba dialog box, there is the option for **Read only**.  In a Samba share, the **Read only switch** will further restrict the group **users** to **read only** access, even if the Shared Folder below allows **write** access.\\ 
 \\
-However a “**write list**” will allow an administrator to selectively bypass the Samba **Read only** switch.  In this case if the statement **''write list=Fred''**  is added to the **Extra Options** field, the user **Fred** will have **write** access while the rest of the group **users** will still be restricted to **Read only**, enforced by Samba's **Read only switch**.\\ 
+However a “**write list**” will allow an administrator to selectively bypass the Samba **Read only** switch.  In this case if the statement **''write list=Fred''**  is added to the **Extra Options** field, the user **Fred** will have **write** access while the rest of the Group **users** will still be restricted to **Read only**, enforced by Samba's **Read only switch**.\\ 
 \\
-The same could be done for the entire users group with **''write list=@users''**  
-Adding this statement would allow the entire users group, over the network, **write** access while restricting **Others** with the **Read only switch**.\\ 
+The same could be done for the Group **users**  with **''write list=@users''**  
+Adding this statement would allow the entire Group **users**, **write** access while restricting **Others** with the **Read only switch**.\\ 
 \\ 
 ----
 ===== ACL's - Extended Permissions =====
@@ -215,10 +215,10 @@ All users are in the default Group **users**.  Fred is the server admin.\\
 \\
 {{ :13-perms-example1.jpg?600 |}}
 \\
-  * In the Shared Folder, the group **users** have **write**.  This is necessary so that **Fred**, who is the family server administrator, can **write** to the share.
+  * In the Shared Folder, the group **users** have **write**.  This is necessary so that **Fred**, who is the family server administrator, can **write** to the share from his client.
   * Samba Public access is set to **Guests allowed** which works with the Shared Folder permission **Others: Read**   These permissions and Samba settings will allow visitors **read** access to media shares such as music or movies.
   * **Read Only is ON**.  This will further restrict the Group users down from **Write** to **Read only** access.  With young children accessing a share, **Read only** is a good idea to prevent the possibility of an accidental deletion of media files.
-  * The Samba **''write list''** bypasses the Samba **Read Only** setting for one user, allowing **Fred** to **write** to the share for admin purposes.\\
+  * The Samba  **''write list''**  bypasses the Samba **Read Only** setting for one user, allowing **Fred** to **write** to the share for admin purposes.\\
 \\
 === A Group Share ===
 \\
