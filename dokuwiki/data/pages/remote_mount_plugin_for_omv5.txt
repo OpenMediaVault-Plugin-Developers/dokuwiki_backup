@@ -400,6 +400,7 @@ While not for beginners, setting up automated and self purging snapshots is with
   * Under **Services**, **Rsycn**, in the **Jobs** tab, select the top Rsync job, and click the **Edit** button. At the top of the dialog box, change the **Enabled** switch from ON (green) to **OFF** (gray).  Proceed down the list, turning **ALL rsync jobs OFF**.
   * Under **Services**, **SMB/CIF**, in the **Settings** Tab under **General Settings**, set **Enable** to **ON** (green).
   * Notify users to use the Backup Server until further notice.
+  * On the **Primary Server**, under **Services**, **SMB/CIF**, **Settings** Tab, **General Settings**, **disable SMB** (off - gray) to avoid user confusion.
 
 \\
 ===== The Bottom Line =====

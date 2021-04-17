@@ -23,14 +23,10 @@ wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/maste
 
 ----
 
-For a list of plugins available, look on bintray:
-
-  * OMV 5.x - [[https://bintray.com/beta/#/openmediavault-plugin-developers/usul?tab=packages|usul]]
-  * OMV 4.x - [[https://bintray.com/beta/#/openmediavault-plugin-developers/arrakis?tab=packages|arrakis]]
-
 Plugin source code available on [[https://github.com/OpenMediaVault-Plugin-Developers|github]]
 
 ----
+While access to Openmediavault plugins and documents is free, please consider a small donation to cover the costs of hosting this site.  Even small donations are greatly appreciated.  Thanks
 
 Venmo:  ryecoaaron
 \\
