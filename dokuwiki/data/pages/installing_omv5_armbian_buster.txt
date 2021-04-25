@@ -6,7 +6,13 @@
 ====== Installing OMV5 on Armbian Buster ======
 \\
 \\
-If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf|Installing OMV5 on Armbian Buster]]
+If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf|Installing OMV5 on Armbian Buster]]\\
+\\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
 
 
 
@@ -367,4 +373,4 @@ At this point, the wireless interface will appear under **System**, **Network**,
 \\ 
 
 
-To further configure the SBC; refer to the [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration|Getting Started with Openmediavault 5 guide]] - [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|or PDF]], starting in the section titled  OMV - Initial Configuration.
+To further configure the SBC; refer to the [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration|Getting Started with Openmediavault 5 guide]] - [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|or PDF]], starting in the section titled [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration|Initial Configuration]].      

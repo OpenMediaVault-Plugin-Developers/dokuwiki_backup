@@ -8,6 +8,11 @@
 If preferred, this document is available in PDF form at this location →  [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-D-Remote_Mount_Plugin.pdf|Adden-D Remote Mount Plugin]]
 \\
 \\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
 ===== The Remote Mount Plugin =====
 Remote Mount is a plugin that's designed to mount a remote network share, in a manner which makes the resultant file system appear to be local.
 

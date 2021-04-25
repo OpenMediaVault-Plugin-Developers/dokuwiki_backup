@@ -7,7 +7,13 @@
 ====== Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install======
 \\ 
 \\ 
-If preferred, this document is available in PDF form at this location →  [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-C-Installing_OMV5_on_32-bit_i386.pdf|Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install]]
+If preferred, this document is available in PDF form at this location →  [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-C-Installing_OMV5_on_32-bit_i386.pdf|Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install]]\\
+\\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
 ===== Introduction =====
 
   * In consideration of Debian's continued support of i386 - 32-bit platforms, support for the installation of Openmediavault on 32-bit Debian is available as a two part process.  After Debian is installed, Openmediavault (hereafter referred to as OMV) is installed by script.

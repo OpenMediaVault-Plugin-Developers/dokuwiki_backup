@@ -15,11 +15,24 @@
 
 <br/>
 
-If preferred, this document is available in PDF form at this location → <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf" rel="ugc nofollow">Installing OMV5 on Armbian Buster</a>
+If preferred, this document is available in PDF form at this location → <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-A-Installing_OMV5_on_Armbian.pdf" rel="ugc nofollow">Installing OMV5 on Armbian Buster</a><br/>
+
+<br/>
+
+<a href="https://translate.google.com/" class="urlextern" title="https://translate.google.com/" rel="ugc nofollow">Google Translate</a> kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-<abbr title="Uniform Resource Locator">URL</abbr> in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.<br/>
+
+<a href="https://translate.google.com/" class="urlextern" title="https://translate.google.com/" rel="ugc nofollow">Google Translate</a> puede traducir documentos wiki a su idioma. Pegue la <abbr title="Uniform Resource Locator">URL</abbr> de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.<br/>
+
+<a href="https://translate.google.com/" class="urlextern" title="https://translate.google.com/" rel="ugc nofollow">Google Translate</a> peut traduire des documents wiki dans votre langue. Collez l&#039;url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.<br/>
+
+<a href="https://translate.google.com/" class="urlextern" title="https://translate.google.com/" rel="ugc nofollow">Google</a>翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。<br/>
+
+<br/>
+
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Installing OMV5 on Armbian Buster&quot;,&quot;hid&quot;:&quot;installing_omv5_on_armbian_buster&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;114-390&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Installing OMV5 on Armbian Buster&quot;,&quot;hid&quot;:&quot;installing_omv5_on_armbian_buster&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;114-1216&quot;} -->
 <h2 class="sectionedit2" id="introduction">Introduction</h2>
 <div class="level2">
 
@@ -29,7 +42,7 @@ However, installing OMV5 on Armbian supported SBC&#039;s is a relatively easy ta
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Introduction&quot;,&quot;hid&quot;:&quot;introduction&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;391-758&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Introduction&quot;,&quot;hid&quot;:&quot;introduction&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;1217-1584&quot;} -->
 <h2 class="sectionedit3" id="about_this_guide">About this Guide</h2>
 <div class="level2">
 
@@ -44,7 +57,7 @@ The purpose and intent of this guide is to provide a walk-through to get SBC use
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;About this Guide&quot;,&quot;hid&quot;:&quot;about_this_guide&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;759-1447&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;About this Guide&quot;,&quot;hid&quot;:&quot;about_this_guide&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;1585-2273&quot;} -->
 <h2 class="sectionedit4" id="not_supported">Not Supported</h2>
 <div class="level2">
 
@@ -57,7 +70,7 @@ Armbian desktop versions are not supported and are used at the user&#039;s risk.
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Not Supported&quot;,&quot;hid&quot;:&quot;not_supported&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;1448-1641&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Not Supported&quot;,&quot;hid&quot;:&quot;not_supported&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;2274-2467&quot;} -->
 <h2 class="sectionedit5" id="supported_devices">Supported Devices</h2>
 <div class="level2">
 
@@ -78,7 +91,7 @@ OMV5 will install on most SBC devices with <strong>Official</strong> Armbian sup
 </ul>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Supported Devices&quot;,&quot;hid&quot;:&quot;supported_devices&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;1642-2474&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Supported Devices&quot;,&quot;hid&quot;:&quot;supported_devices&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;2468-3300&quot;} -->
 <h2 class="sectionedit6" id="prerequisites">Prerequisites</h2>
 <div class="level2">
 
@@ -134,7 +147,7 @@ For the best experience, use only high quality <strong><em class="u">new</em></s
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Prerequisites&quot;,&quot;hid&quot;:&quot;prerequisites&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;2475-5615&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Prerequisites&quot;,&quot;hid&quot;:&quot;prerequisites&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;3301-6441&quot;} -->
 <h2 class="sectionedit7" id="working_with_the_image_file">Working With the Image File</h2>
 <div class="level2">
 
@@ -165,7 +178,7 @@ The result of the above action is the extraction of files into the current direc
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Working With the Image File&quot;,&quot;hid&quot;:&quot;working_with_the_image_file&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;5616-6185&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Working With the Image File&quot;,&quot;hid&quot;:&quot;working_with_the_image_file&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;6442-7011&quot;} -->
 <h3 class="sectionedit8" id="verify_the_image">Verify the image</h3>
 <div class="level3">
 
@@ -216,7 +229,7 @@ With a sha-256 match, the downloaded image is verified.
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Verify the image&quot;,&quot;hid&quot;:&quot;verify_the_image&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;6186-7279&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Verify the image&quot;,&quot;hid&quot;:&quot;verify_the_image&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;7012-8105&quot;} -->
 <h3 class="sectionedit9" id="format_and_test_flash_media">Format and Test Flash Media</h3>
 <div class="level3">
 
@@ -324,7 +337,7 @@ After H2testw verifies the SD-card; <strong>do one more clean format</strong>, u
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Format and Test Flash Media&quot;,&quot;hid&quot;:&quot;format_and_test_flash_media&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;7280-8897&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Format and Test Flash Media&quot;,&quot;hid&quot;:&quot;format_and_test_flash_media&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;8106-9723&quot;} -->
 <h3 class="sectionedit10" id="flashing_armbian_onto_an_sd-card">Flashing Armbian onto an SD-card</h3>
 <div class="level3">
 
@@ -357,7 +370,7 @@ The flash operation is complete.
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Flashing Armbian onto an SD-card&quot;,&quot;hid&quot;:&quot;flashing_armbian_onto_an_sd-card&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;8898-9508&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Flashing Armbian onto an SD-card&quot;,&quot;hid&quot;:&quot;flashing_armbian_onto_an_sd-card&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;9724-10334&quot;} -->
 <h2 class="sectionedit11" id="the_first_boot">The First Boot</h2>
 <div class="level2">
 
@@ -412,7 +425,7 @@ Unfortunately, this first time logon may kick off a mandatory root user password
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;The First Boot&quot;,&quot;hid&quot;:&quot;the_first_boot&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;9509-11147&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;The First Boot&quot;,&quot;hid&quot;:&quot;the_first_boot&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;10335-11973&quot;} -->
 <h2 class="sectionedit12" id="armbian_-_first_time_logon">Armbian - First Time Logon</h2>
 <div class="level2">
 
@@ -458,7 +471,7 @@ When the root password change is complete, Armbian will prompt to create a  non-
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Armbian - First Time Logon&quot;,&quot;hid&quot;:&quot;armbian_-_first_time_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;11148-12134&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Armbian - First Time Logon&quot;,&quot;hid&quot;:&quot;armbian_-_first_time_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;11974-12960&quot;} -->
 <h2 class="sectionedit13" id="finishing_the_armbian_install">Finishing the Armbian Install</h2>
 <div class="level2">
 
@@ -504,7 +517,7 @@ In a few minutes, open a new PuTTY/SSH window for the installation of OMV.
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing the Armbian Install&quot;,&quot;hid&quot;:&quot;finishing_the_armbian_install&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;12135-12775&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing the Armbian Install&quot;,&quot;hid&quot;:&quot;finishing_the_armbian_install&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;12961-13601&quot;} -->
 <h2 class="sectionedit14" id="install_omv">Install OMV</h2>
 <div class="level2">
 
@@ -539,7 +552,7 @@ When the script is complete, the SBC will automatically reboot.
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install OMV&quot;,&quot;hid&quot;:&quot;install_omv&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:14,&quot;range&quot;:&quot;12776-13651&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install OMV&quot;,&quot;hid&quot;:&quot;install_omv&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:14,&quot;range&quot;:&quot;13602-14477&quot;} -->
 <h3 class="sectionedit15" id="first_time_gui_logon">First Time GUI Logon</h3>
 <div class="level3">
 
@@ -567,7 +580,7 @@ In the rare event that the OMV console or SSH client does not respond to the IP 
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;First Time GUI Logon&quot;,&quot;hid&quot;:&quot;first_time_gui_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:15,&quot;range&quot;:&quot;13652-14459&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;First Time GUI Logon&quot;,&quot;hid&quot;:&quot;first_time_gui_logon&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:15,&quot;range&quot;:&quot;14478-15285&quot;} -->
 <h2 class="sectionedit16" id="finishing_up">Finishing Up</h2>
 <div class="level2">
 
@@ -593,7 +606,7 @@ To add a Wireless Interface see Final Notes below.  (Unless absolutely required,
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing Up&quot;,&quot;hid&quot;:&quot;finishing_up&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:16,&quot;range&quot;:&quot;14460-15064&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Finishing Up&quot;,&quot;hid&quot;:&quot;finishing_up&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:16,&quot;range&quot;:&quot;15286-15890&quot;} -->
 <h2 class="sectionedit17" id="donate">Donate</h2>
 <div class="level2">
 
@@ -607,12 +620,12 @@ If you found this guide to be helpful and OMV on Armbian SBC&#039;s to be useful
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Donate&quot;,&quot;hid&quot;:&quot;donate&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:17,&quot;range&quot;:&quot;15065-15387&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Donate&quot;,&quot;hid&quot;:&quot;donate&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:17,&quot;range&quot;:&quot;15891-16213&quot;} -->
 <h2 class="sectionedit18" id="final_notes">Final Notes:</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Final Notes:&quot;,&quot;hid&quot;:&quot;final_notes&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:18,&quot;range&quot;:&quot;15388-15414&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Final Notes:&quot;,&quot;hid&quot;:&quot;final_notes&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:18,&quot;range&quot;:&quot;16214-16240&quot;} -->
 <h3 class="sectionedit19" id="networking_-_general">Networking - General</h3>
 <div class="level3">
 
@@ -622,7 +635,7 @@ Supporting Portainer, to allow easy use of Dockers, was a priority add-on for OM
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Networking - General&quot;,&quot;hid&quot;:&quot;networking_-_general&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:19,&quot;range&quot;:&quot;15415-15779&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Networking - General&quot;,&quot;hid&quot;:&quot;networking_-_general&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:19,&quot;range&quot;:&quot;16241-16605&quot;} -->
 <h3 class="sectionedit20" id="wireless_networking">Wireless Networking</h3>
 <div class="level3">
 
@@ -705,8 +718,8 @@ At this point, the wireless interface will appear under <strong>System</strong>,
 </p>
 
 <p>
-To further configure the SBC; refer to the <a href="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" class="urlextern" title="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" rel="ugc nofollow">Getting Started with Openmediavault 5 guide</a> - <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" rel="ugc nofollow">or PDF</a>, starting in the section titled  OMV - Initial Configuration.
+To further configure the SBC; refer to the <a href="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" class="urlextern" title="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" rel="ugc nofollow">Getting Started with Openmediavault 5 guide</a> - <a href="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" class="urlextern" title="https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf" rel="ugc nofollow">or PDF</a>, starting in the section titled <a href="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" class="urlextern" title="https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration" rel="ugc nofollow">Initial Configuration</a>.      
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Wireless Networking&quot;,&quot;hid&quot;:&quot;wireless_networking&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:20,&quot;range&quot;:&quot;15780-&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Wireless Networking&quot;,&quot;hid&quot;:&quot;wireless_networking&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:20,&quot;range&quot;:&quot;16606-&quot;} -->

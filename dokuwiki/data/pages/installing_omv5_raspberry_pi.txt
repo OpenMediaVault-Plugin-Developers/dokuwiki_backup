@@ -7,7 +7,13 @@
 ====== Installing OMV5 on a Raspberry PI ======
 \\ 
 \\ 
-If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-B-Installing_OMV5_on_an%20R-PI.pdf|Installing OMV5 on a Raspberry PI]]
+If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-B-Installing_OMV5_on_an%20R-PI.pdf|Installing OMV5 on a Raspberry PI]]\\
+\\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
 
 
 ===== Introduction =====
@@ -432,4 +438,4 @@ At this point, the wireless interface will appear under **System**, **Network**,
 
 {{ :divider.png?600 |}}
 \\ 
-To further configure the R-PI; refer to the [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|Getting Started with Openmediavault 5 guide]], starting in the section titled  OMV - Initial Configuration.
+To further configure the R-PI; refer to the [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Getting_Started-OMV5.pdf|Getting Started with Openmediavault 5 guide]], starting in the section titled [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#initial-configuration|Initial Configuration]].   
