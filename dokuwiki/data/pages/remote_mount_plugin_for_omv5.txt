@@ -5,7 +5,7 @@
 ====== Remote Mount For Openmediavault 5 ======
 \\
 \\
-If preferred, this document is available in PDF form at this location →  [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-D-Remote_Mount_Plugin.pdf|Adden-D Remote Mount Plugin]]
+This document can be converted to a PDF file, in the user's language of choice (see the following), on Windows, Mac's and popular Linux desktop platforms. Simply select the printer icon on the upper right corner of this web page. When prompted at the client, select “print to PDF”, name and save the file.
 \\
 \\
 [[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\

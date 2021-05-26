@@ -24,3 +24,5 @@
 1615770657	74.123.77.193	E	nas_permmissions_in_omv	crashtest	[Samba (SMB) Network Shares] 		-16
 1615771109	74.123.77.193	E	nas_permmissions_in_omv	crashtest	[A Media Share] 		18
 1619005022	74.123.77.193	E	nas_permmissions_in_omv	crashtest			823
+1619484134	74.123.77.193	E	nas_permmissions_in_omv	crashtest	[NAS Permissions In OMV] 		106
+1619559468	74.123.77.193	E	nas_permmissions_in_omv	crashtest	[NAS Permissions In OMV] 		-5

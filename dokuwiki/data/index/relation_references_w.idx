@@ -19,3 +19,5 @@ remote_mount
 remote_mount_plugin_for_omv5
 further_notes_on_permission_commands
 nas_permmissions_in_omv
+flashmemory_plugin_for_omv6
+automated_zfs_snapshots_for_omv5

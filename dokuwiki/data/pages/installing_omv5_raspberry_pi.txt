@@ -7,7 +7,7 @@
 ====== Installing OMV5 on a Raspberry PI ======
 \\ 
 \\ 
-If preferred, this document is available in PDF form at this location → [[https://github.com/OpenMediaVault-Plugin-Developers/docs/blob/master/Adden-B-Installing_OMV5_on_an%20R-PI.pdf|Installing OMV5 on a Raspberry PI]]\\
+This document can be converted to a PDF file, in the user's language of choice (see the following), on Windows, Mac's and popular Linux desktop platforms. Simply select the printer icon on the upper right corner of this web page. When prompted at the client, select “print to PDF”, name and save the file.\\
 \\
 [[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
 [[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
@@ -34,12 +34,12 @@ The purpose and intent of this guide is to provide a walk-through to get Raspber
 \\ 
 ===== Supported Devices =====
 
-OMV5 will install on R-PI models 2B and higher.  In practical terms, the performance of the model 2B is marginal. 
+OMV5 will install on R-PI models 2B and higher.  However, in practical terms, the performance of the model 2B is marginal. 
 
 \\ 
 ===== Not Supported =====
 
-**__Desktop__ versions of Raspberry PI OS** are not supported.  (Use the Raspberry PI OS "**lite**" version.)
+**__Desktop__** versions of Raspberry PI OS are **NOT** supported.  (Use the Raspberry PI OS "**lite**" version only.)
 
 //**Legacy Raspberry PI's**//
 
@@ -71,7 +71,7 @@ For the best experience, use only high quality **__new__** SD-cards, such as Sam
 
 **Important**
   * When selecting an Image, for best possible compatibility with OMV5, don't use an image with a desktop. 
-  * On the [[https://www.raspberrypi.org/software/operating-systems/|Raspberry PI OS download page]], scroll down and select the  download for **Raspberry Pi OS Lite**
+  * On the [[https://www.raspberrypi.org/software/operating-systems/#raspberry-pi-os-32-bit|Raspberry PI OS download page]], select the  download for **Raspberry Pi OS Lite**
 
 For the purposes of illustration, this SHA-256 hash for an older version of **Buster Lite** was: **9e5cf24ce483bb96e7736ea75ca422e3560e7b455eee63dd28f66fa1825db70e**
 (* This hash number will change with the image, as images are updated. *)  Make a note of the hash number found, or bookmark the download web page for reference.  This will be used later.
@@ -389,8 +389,16 @@ All users are encouraged to review the section titled Operating System Backup fo
 
 If you found this guide to be helpful, and OMV on Raspberry PI OS to be useful, please consider a modest [[https://wiki.omv-extras.org/doku.php?id=start|donation]]  
 
-In addition to enabling the installation of OMV on Raspberry PI's, OMV-extras.org develops plugin's for OMV that increase functionality, enabling Dockers VIA Portainer and other extensions for your Raspberry PI.  To support continuing development and to help offset some of the Developer's costs, even small donations are greatly appreciated.
-
+In addition to enabling the installation of OMV on Raspberry PI's, OMV-extras.org develops plugin's for OMV that increase functionality, enabling Dockers VIA Portainer and other extensions for your Raspberry PI.  To support continuing development and to help offset some of the Developer's costs, even small donations are greatly appreciated.\\
+\\
+<html>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="2BQNGSC8HQJME">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" border="0">
+<img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" border="0">
+</form>
+</html>
 \\ 
 \\
 \\

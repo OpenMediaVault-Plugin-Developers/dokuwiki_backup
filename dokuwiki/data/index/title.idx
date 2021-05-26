@@ -10,3 +10,6 @@ Installing OMV5 on a Raspberry PI
 Installing OMV5 on i386 (32-bit) PC's & Alt 64 bit install
 Remote Mount For Openmediavault 5
 NAS Permissions In OMV
+
+FlashMemory Plugin For OMV6
+Automated ZFS Snapshots for openmediavault 5

@@ -13,7 +13,7 @@ The document index contains guides for scripted installs, on the titled platform
 <HTML><Center><strong>The Quick Index for Experienced Linux Users and Admins</strong></Center></HTML>
 \\
 \\
-  * For a quick installation of omv-extras, on Openmediavault, run the following command as root:
+  * For a quick installation of omv-extras, on Openmediavault v5, run the following command as root:
 
 wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash 
 

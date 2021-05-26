@@ -1,0 +1,62 @@
+{{ :underconstruction.jpg?400 |}}
+\\
+\\
+\\
+<html><center><strong>FlashMemory Plugin For OMV6</strong></center></html>
+
+{{ :omvextras_logo4.jpg?400 |}}
+
+====== FlashMemory Plugin For OMV6 ======
+\\
+\\
+This document can be converted to a PDF file, in the user's language of choice (see the following), on Windows, Mac's and popular Linux desktop platforms.  Simply select the printer icon on the upper right corner of this web page.  When prompted at the client, select "print to PDF", name and save the file.
+\\
+\\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
+\\
+===== The FlashMemory Plugin =====
+The FlashMemory Plugin was designed to make booting from USB thumbdrives and SD-cards feasible, and a practical alternative to booting from a hard drive or SSD.  In addition to relative low cost, using USB thumbdrives enable easy [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#operating-system-backup|OS backup]]  ((Update to link OMV6 New User Guide)) options, quick recovery from boot drive failure and it saves a SATA port for a data storage drive.\\  
+\\
+This plugin is **REQUIRED** or a flash boot drive will have a short life.  For an in-depth explanation see;  [[https://wiki.omv-extras.org/doku.php?id=flashmemory_plugin_for_omv6#why_is_the_flashmemory_plugin_required|Why is the FlashMemory Plugin Required?]]     \\
+\\
+
+==== Prerequisites ====
+
+  * Applies to amd64 ISO installations only.  The FlashMemory Plugin is installed by default during scripted installs. (R-PI's, Armbian Boards, the 32bit install, and the Alternate 64bit install.)
+  * OMV-Extras must be installed.  
+ 
+There are two methods for installing OMV-Extras\\
+    - Install by OMV-Extras by plugin → [[https://openmediavault.readthedocs.io/en/5.x/new_user_guide/newuserguide.html#omv-extras|OMV-Extras]]  ((Needs Update)).\\
+    - Installation by script  ((Need the OMV6 finalized script.))\\
+\\
+----
+===== Install FlashMemory Plugin =====
+  - Under **System**, **Plugins** scroll to the **openmediavault-flashmemory** plugin.  Check the **selection box** and click the **Install** button.  ((Check in finalize OMV6 GUI to update.))
+  - Install by script  ((Need OMV6 script link.))\\
+\\
+===== FlashMemory, Additional Setup =====
+\\
+==== Why is the FlashMemory Plugin Required? ====
+\\
+=== Wear Leveling ===
+While modern flash media drive is solid state, it’s life is limited by the number of write cycles it can withstand before it goes “read-only”. When an OEM  specified number of flash memory blocks refuse to erase, the device’s controller will set it “read only”. At that point, the device’s useful life is over.
+
+To extend the life of flash media, most modern flash devices have "wear leveling" built into their controllers. If blocks are written, but not erased, they experience no wear. If blocks are erased, the next new write is set on adjacent blocks that have never been written before. As data is erased and written, blocks are used starting at the beginning of the device’s available storage address range and proceeding, in sequence, working toward the end. When the end of the range is reached, the process starts at the beginning and cycles through again. This wear leveling process avoids writing a single location to failure, and spreads wear evenly throughout.
+
+With wear leveling and using two drives of the same type, a drive that is twice the size will last roughly two times longer than the smaller drive. This may seem like is a strong vote for using a larger flash drive. However, when backups are considered, drives of twice the size also take twice as long to image and their image files are twice as large. (When using flash media as a boot drive, a practical trade-off should be considered in the 16 to 32GB range.)
+\\
+\\
+=== The Purpose of the Plugin ===
+Most writes to OMV's boot drive are entries being appended to log files.  While log file entries are very small writes, that may be as little at 80 bytes, they occur on a regular basis.  A write operation to a flash device is done in writable "blocks" that are, typically, 2KB or 4KB minimum regardless of how small the write may be.  This results in what is called "write amplification" where numerous large segments (2 to 4KB) of the drive are written to record very small amounts of data (+/- 80 bytes).  The end result is writing all of the available blocks of the flash device rapidly, to exhaustion, where it will go read-only.\\
+\\
+The primary purpose of the Flash Memory Plugin is to reduce the frequency of writes to flash media by consolidating very small writes into one, larger, bulk write that is flushed to the boot drive on shutdown.  This dramatically reduces the number of blocks physically written to the Flash Device. The plugin can reduce the number of blocks written to the Flash drive by, potentially, an order of magnitude or 1/10th the amount that would otherwise be written. By extension, a drive of a given size might last up to 10 times longer than it would without the Flash Media plugin.\\
+\\
+It's worth noting that SSD's would benefit from the FlashMemory plugin as well.
+\\
+
+
+

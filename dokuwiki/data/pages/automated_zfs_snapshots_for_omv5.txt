@@ -1,0 +1,231 @@
+<html><center><strong>Automated ZFS Snapshots for openmediavault 5</strong></center></html>
+
+{{ :zfs1.jpg?400 |}}
+
+====== Automated ZFS Snapshots for openmediavault 5 ======
+\\
+<html><center><strong>How To setup automated, Self  Rotating and Purging ZFS snapshots</strong></center></html>
+
+\\
+\\
+This document can be converted to a PDF file, in the user's language of choice (see the following), on Windows, Mac's and popular Linux desktop platforms. Simply select the printer icon on the upper right corner of this web page. When prompted at the client, select “print to PDF”, name and save the file.
+\\
+\\
+[[https://translate.google.com/|Google Translate]] kann Wiki-Dokumente in Ihre Sprache übersetzen. Fügen Sie die Wiki-URL in das linke Fenster ein und öffnen Sie den übersetzten Link rechts.\\
+[[https://translate.google.com/|Google Translate]] puede traducir documentos wiki a su idioma. Pegue la URL de la wiki en la ventana izquierda y abra el enlace traducido a la derecha.\\
+[[https://translate.google.com/|Google Translate]] peut traduire des documents wiki dans votre langue. Collez l'url du wiki dans la fenêtre de gauche et ouvrez le lien traduit sur la droite.\\
+[[https://translate.google.com/|Google]]翻訳はwikiドキュメントをあなたの言語に翻訳することができます。 左側のウィンドウにwikiのURLを貼り付け、右側の翻訳されたリンクを開きます。\\
+\\
+===== Automated ZFS Snapshots =====
+\\
+**For ZFS users:**\\
+This guide will show how to setup and take advantage of one of ZFS' most valuable features for restoration, SNAPSHOTS.\\  
+**zfs-auto-snapshot**, automatically creates, prunes, and purges periodic snapshots.  Other than ZFS utilities, which are installed with the ZFS filesystem and cron, which is part of most Linux installations, there are no specific dependencies.
+
+While intended primarily for openmendiavault, this How-To and the package zfs-auto-snapshot will work with other Linux distributions with ZFS on Linux (ZOL).
+----
+
+**Tested – December 31rst, 2020:  With openmediavault 5 and Debian 10 (Buster).**\\
+Tested, prior, with openmediavault 4 and Debian 9.
+
+----
+
+==== General ====
+
+Given the design and function of a CoW (copy on write) filesystem, ZFS gives users the ability to “capture” the state of their file system at a given moment in time and preserve it using snapshots.  Since only changes to ZFS filesystems are maintained between current filesystem states and historic snapshots, snapshoting is very efficient.  For largely static pools, maintaining the cumulative differences between snapshots, shouldn't require more than an extra 25% disk space.  
+Having the ability to “roll back” the pool, individual filesystems in the pool, or retrieve individual files from previous snapshots has obvious advantages.  These abilities would allow an entire pool to be restored to a time before a virus infection, a ransomware infection, and allow the retrieval of  deleted files or previous versions of files.\\
+\\
+An excellent overview of how ZFS snapshots work is available on Youtube → [[https://www.youtube.com/watch?v=NXg86uBDSqI|ZFS snapshots]].  While the presentation is 46 minutes, the video can be skimmed for the highlights. 
+----
+
+<html><center><strong>For the purpose of illustration - the following pool “Rocky” and child filesystems were created:</strong></center></html>
+
+
+{{ ::zfs2.jpg?700 |}}
+
+----
+
+==== Install zfs-auto-snapshot ====
+\\
+From the command line as root, copy and paste the following: \\
+\\
+''wget https://github.com/zfsonlinux/zfs-auto-snapshot/archive/master.zip'' \\
+\\
+''unzip master.zip'' \\
+\\
+If the output of the above is; “''-bash: unzip: command not found''” do the following on the command line:\\
+''apt install unzip'' \\
+Then rerun the unzip command: \\
+''unzip master.zip'' \\
+\\
+''cd zfs-auto-snapshot-master'' \\
+\\
+''make install'' \\
+
+----
+
+By default the install will set up scripts that will run the following snapshot jobs separately on the parent pool and on all individual child filesystems.\\
+\\
+**frequent** snapshots run every 15 mins, keeping 4 snapshots \\
+**hourly** snapshots run every hour, keeping 24 snapshots \\
+**daily** snapshots run every day, keeping 31 snapshots \\
+**weekly** snapshots run every week, keeping 7 snapshots \\
+**monthly** snapshots run every month, keeping 12 snapshots \\
+\\
+With default settings, all of these jobs can preserve previous states of the pool and child filesystem(s) for up to a year. \\
+\\
+----
+\\
+<html><center><strong>For the purpose of understanding what is captured in a Snapshot</strong></center></html>
+\\
+A “pool snapshot” captures the state of the parent pool, in this example “Rocky”, and all Linux folders, sub-directories, and files contained in the parent pool.  Child filesytems are separate ZFS objects and are not included in snapshots of the parent pool.\\
+\\
+**In the interests of clarity:**\\
+A ZFS “filesystem” is interchangeable with a standard Linux folder at the root of the parent pool and is navigable, on the command line, in the same manner.  The difference is a standard Linux folder at the root of the pool, is part of the parent pool.  A child “filesystem” is created by ZFS and is assigned editable ZFS properties.  A “filesystem snapshot” is taken independent of the parent pool and is independently restoreable. \\
+\\
+----
+===== Customizing Snapshot jobs =====
+
+By default all snapshot time intervals are set to “**true**”.  Changes are required only if a specific time interval is not desired.
+----
+
+=== Pool Snapshots ===
+
+The following command lines can be used to selectively turn snapshot intervals **ON** or **OFF** for the **pool** named **Rocky**.  In this example, the first line enables or disables snapshots of the pool “Rocky”.  The lines, after the first line, enable specific snapshot time intervals.\\
+\\
+zfs set com.sun:auto-snapshot=**true** Rocky\\
+\\
+zfs set com.sun:auto-snapshot:frequent=true Rocky\\
+zfs set com.sun:auto-snapshot:hourly=true Rocky\\
+zfs set com.sun:auto-snapshot:daily=true Rocky\\
+zfs set com.sun:auto-snapshot:weekly=true Rocky\\
+zfs set com.sun:auto-snapshot:monthly=**false** Rocky\\
+\\
+Time intervals where a snapshot is desired are set to **true**.  Intervals that are not desired are set to false.
+In this example, with all intervals up to “weekly” set to “true”, the pool “Rocky” will have a snapshot recorded 4 times an hour (4 total), once per hour (24 total), once a day (31 total), and once a week (7 total).  In this case, it would be possible roll this pool back to any one of several snapshots taken during the past 7 weeks.  
+Again, in the example above, **true** is assumed on all lines.  To turn off monthly snapshots for the pool named Rocky, a single command is required:
+
+''zfs set com.sun:auto-snapshot:monthly=false Rocky''
+
+----
+
+=== Filesystem Snapshots ===
+
+The following command lines can be used to selectively turn snapshots on or off for an individual  **filesystem**.  In this example, the first line enables or disables snapshots of the **Rocky/Pictures** filesystem.  The following lines enable specific snapshot time intervals.
+zfs set com.sun:auto-snapshot=true Rocky/Pictures\\
+\\
+zfs set com.sun:auto-snapshot:frequent=**false** Rocky/Pictures\\
+zfs set com.sun:auto-snapshot:hourly=**false** Rocky/Pictures\\
+zfs set com.sun:auto-snapshot:daily=true Rocky/Pictures\\
+zfs set com.sun:auto-snapshot:weekly=**false** Rocky/Pictures\\
+zfs set com.sun:auto-snapshot:monthly=**false** Rocky/Pictures\\
+\\
+Again, **true** is assumed in all lines, by default.  No change is needed.  Periods that are not desired are manually set to **false**.  In this example, with “**daily=true**” (or unaltered) , the filesystem “Rocky/Pictures” will have a snapshot recorded once a day, everyday, retaining 31 snapshots totaling 1 month.  In this case, it would be possible roll this file system back to a snapshot taken on any day, in the prior 31 days.
+
+Again, because **true** is the default for all intervals, to disable the unneeded intervals, the following commands on the Command Line Interface (CLI) would be required:\\
+\\
+''zfs set com.sun:auto-snapshot:frequent=false Rocky/Pictures''\\
+''zfs set com.sun:auto-snapshot:hourly=false Rocky/Pictures''\\
+''zfs set com.sun:auto-snapshot:weekly=false Rocky/Pictures''\\
+''zfs set com.sun:auto-snapshot:monthly=false Rocky/Pictures''\\
+ 
+Repeat this process for all child filesystems attached to the parent pool.  Again, all intervals are “true” by default.  Only the intervals that are NOT desired need a statement with “false”.
+----
+
+==== Looking at and Organizing Snapshots ====
+
+All snapshots taken by zfs-auto-snapshot are viewable in the OMV GUI.  OMV provides a tab for looking at and sorting snapshots under Storage, ZFS, Snapshots.\\
+\\
+On the CLI ''zfs list -t snapshot'' will provide a list of snapshots but the shear length of the list makes it unwieldy.\\
+
+----
+
+==== Rolling Back ====
+
+While rolling back a file system or the parent pool is relatively easy, if going significantly back in time (beyond the most recent snapshot) the roll back feature will not work in the OMV GUI.  However, a roll back can be done with the following command line:
+
+(In this example, the roll back would be done to the parent pool “Rocky”.)
+
+''zfs rollback Rocky@zfs-auto-snap_hourly-2018-01-14-1617 -r''   
+
+(In the following example – the roll back would be done to the “Rocky/Pictures” filesystem.)
+
+''zfs rollback Rocky/Pictures@zfs-auto-snap_hourly-2018-01-14-1617 -r''   
+
+Using the exact name of the snapshot provided in the OMV GUI (examples above) and the above rollback command with the -r suffix, the pool or child filesystems can be rolled back to the date / time of the specified snapshot.
+----
+
+==== Individual filesystem, folder, or file recovery ==== 
+
+The following command should be used with caution.  It will reveal the hidden snapshot directory in the filesystem specified.
+
+''zfs set snapdir=**visible** Rocky/Pictures''
+                  
+Turning the above command off is done as follows:
+
+''zfs set snapdir=**hidden**  Rocky/Pictures''
+\\
+\\
+When the hidden directory is made visible, with the set visible command above, it will appear in the associated SMB share.\\
+----
+<html><center>The following example is of a ZFS filesystem named <strong>Documents</strong>.  The folder <strong>.zfs</strong> is now revealed.</center></html>
+
+{{ ::zfs3.jpg?600 |}}
+----
+\\
+Under **.zfs**, the **snapshot** directory is found.  Within the snapshot folder are past snapshots for the **Documents** filesystem, in folders named by the snapshot interval, with date and time.
+
+{{ ::zfs4.jpg?600 |}}
+\\
+\\
+Inside of each snapshot folders exists the exact state of the filesystem, as it existed on the date shown.
+
+The contents of any snapshot can be copied from the snapshot to replace or overwrite any part of, or all of, the current top level file system.  (*Provided that the client has “write” access to the share.*)
+
+For businesses and users, going back to a time before malware existed on a share; this feature can be utilized as a ransomware or virus “Killer”.  In such a scenario, be sure to work from the server using a package like Midnight Commander (''apt-get mc'') or use a known clean mal-ware free client.
+
+**Caution**:\\
+The above will make all of the current filesystem's files AND all past versions within snapshots look like nested but individual (separate) files and folders, complete with a unique directory structure (the snapshot names). 
+If the snapshot directory is visible and an rsync job or any other backup type runs, pulling files from the share, the destination will be **OVER RUN** with multiple versions of the same files and folders.  It is **IMPORTANT** to turn off any type of server share backup job before using this command.  
+Equally important is the need for any copy, paste or replace operations, from past snapshots to the current file system, to be “//**surgical**//”.
+
+Again the command to re-hide the snapshot folder is:
+
+''zfs set snapdir=hidden  <poolname>/<filesystem_name>''
+
+----
+===== Notes: =====
+
+1. For maximum snapshot flexibility, creating child filesystems on the parent pool is essential.\\
+\\
+2. Think of the roll back feature as going back in time, in the ZFS “time line”. When rolling back to a specific date/time snapshot, ZFS destroys all snapshots (all file changes, additions and deletions) between the present state and the past state of the filesystem.  This is necessary, using a time travel analogy, to avoid a “Paradox”.  (Where two different time lines of the file system would exist.)  Rolling back is permanent.  It's not possible to undo a roll back or “spring forward”.
+\\
+The practical implications are:\\ 
+  * In order to not lose file changes, deletions, etc., it's better to roll back the shortest interval possible. 
+  * By extension, it's better to roll back a single filesystem (the ZFS equivalent of a root folder), than it is to roll back an entire pool without child filesystems.
+  * Due to the minimal overall impact, to prevent the loss of file versions, etc; selective restoration(s) of files and folders is preferred and is “best practice”.
+  * Roll backs are a disaster recovery option that, if applied, should but be as narrow as possible (a single filesystem) and limited to the shortest time interval possible.
+\\
+3. If a particular file system experiences a high rate of file turnover or file versioning (databases, etc.), snapshot retention periods may need to be shortened to prevent excessive use of disk space.  Given this consideration, a dedicated filesystem could be used to isolate frequently changing, transactional data sets, from relatively static file storage.\\
+\\
+4. While it is an advanced technique; it is possible to create a file system “clone” from a past snapshot, without rolling back.  The clone could be used as a source of folders and files as they existed when the snapshot was taken, without sacrificing the snapshots in between.  (See references for further details.)\\
+\\
+5. While zfs-auto-snapshot creates considerable flexibility in file, folder, filesystem, and pool restorations, it is NOT BACKUP.  If a ZFS pool is lost, local snapshots are lost as well.\\
+\\
+6. If more advanced features are needed, such as offloading snapshots to an external host, [[http://www.znapzend.org/|ZnapZend]] is a more appropriate solution.\\    
+\\
+==== Additional Information ====
+ 
+==== zfs-auto-snapshot source ====
+https://github.com/zfsonlinux/zfs-auto-snapshot/ \\
+\\
+A Comprehensive and well written ZFS reference: \\
+https://pthree.org/2012/12/19/zfs-administration-part-xii-snapshots-and-clones/ \\
+\\
+==== ZFS Video Tutorial ====
+Part 1: https://sysadmincasts.com/episodes/35-zfs-on-linux-part-1-of-2  \\
+Part 2: https://sysadmincasts.com/episodes/37-zfs-on-linux-part-2-of-2  \\
+* Due to a difference in repositories, do not install ZFS and use a pool created in Tutorial, with OMV.  It's best to install ZFS using the plugin, in OMV's GUI. \\ 
+* While this tutorial is informative, it would be best done using a newly created pool that can be destroyed when the tutorial is complete.  Doing any roll back operation on an existing ZFS pool/filesystem comes with a risk of “fat finger” mistakes.  \\
+
+
